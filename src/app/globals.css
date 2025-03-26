@@ -79,4 +79,7 @@
   --color-warning-200: #f6db80;
   --color-warning-100: #f9e9b2;
   --color-warning-50: #fdf7e0;
+
+  --font-poppins: var(--font-poppins);
+  --font-inter: var(--font-inter);
 }
