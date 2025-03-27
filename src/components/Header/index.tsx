@@ -8,10 +8,10 @@ import { usePathname } from "next/navigation";
 import Button from "../Button";
 
 function Header() {
-  const pathname = usePathname(); // Obtendo o caminho atual
+  const pathname = usePathname();
 
   const isActive = (path: string) =>
-    pathname === path ? "text-blue-500" : "text-neutral-800"; // Altere para as cores que desejar
+    pathname === path ? "text-blue-800 font-bold" : "text-neutral-600";
 
   return (
     <header className="flex items-center gap-16 py-6 px-12 w-full border-b-1 border-neutral-100">
