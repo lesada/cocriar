@@ -8,12 +8,13 @@ type ButtonProps = {
 function Button({
   variant = "primary",
   disabled = false,
+  className,
   ...rest
 }: ButtonProps) {
   return (
     <button
       className={clsx(
-        "w-3xs h-14 py-4 px-8 flex items-center justify-center gap-2.5 shrink-0  rounded-3xl text-neutral-0 ",
+        `w-3xs h-14 py-4 px-8 flex items-center justify-center gap-2.5 shrink-0  rounded-3xl text-neutral-0 ${className}`,
         {
           "bg-blue-800": variant === "primary",
           "bg-cyan-600": variant === "secondary",
