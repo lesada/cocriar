@@ -23,7 +23,13 @@ function Header() {
   return (
     <header className="flex items-center justify-center gap-16 py-6 lg:px-12 w-full border-b-1 border-neutral-100 lg:justify-start">
       <div className="w-10" />
-      <Image src={logo} alt="Co-criar" className="shrink-0" />
+      <Image
+        src={logo}
+        alt="Co-criar"
+        className="shrink-0"
+        width={120}
+        height={50}
+      />
       <nav className="hidden lg:flex flex-1">
         <ul className="flex items-center flex-1 gap-3 font-inter text-lg leading-relaxed">
           {routes.map((route) => (
