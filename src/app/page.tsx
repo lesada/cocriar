@@ -1,7 +1,12 @@
+import Section from "@/components/Section";
+
 export default function Home() {
   return (
     <main>
-      {/* <div className="font-poppins text-9xl">Hello world!</div> */}
+      <Section tag="Soluções co-criar">
+        <h3 className="title">Teste</h3>
+        <p className="text">aaa</p>
+      </Section>
     </main>
   );
 }

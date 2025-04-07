@@ -22,7 +22,7 @@ function Header() {
 
   return (
     <header className="flex items-center justify-center gap-16 py-6 lg:px-12 w-full border-b-1 border-neutral-100 lg:justify-start">
-      <div className="w-10" />
+      <div className="w-10 lg:hidden" />
       <Image
         src={logo}
         alt="Co-criar"
