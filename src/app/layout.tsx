@@ -10,12 +10,13 @@ export const metadata: Metadata = {
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  weight: ["400", "500", "700"],
 });
 
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
-  weight: ["400"],
+  weight: ["400", "500", "700"],
 });
 
 export default function RootLayout({
@@ -25,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${inter.className} ${poppins.className}`}>
+      <body className={`${inter.variable} ${poppins.variable}`}>
         <Header />
         {children}
       </body>
