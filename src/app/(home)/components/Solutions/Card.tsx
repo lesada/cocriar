@@ -8,7 +8,6 @@ type CardProps = {
 } & TSolutionsItem;
 
 function Card({ title, content, detach, icon, colors }: CardProps) {
-  console.log(colors?.icon);
   return (
     <div
       className={twMerge(
@@ -16,7 +15,7 @@ function Card({ title, content, detach, icon, colors }: CardProps) {
           "rounded-lg basis-xs border-2 px-4 py-6 flex flex-col gap-4 min-h-72 border-purple-300",
           detach && "bg-purple-900",
           detach && colors?.detach && colors.detach,
-          colors?.border && colors?.border
+          colors?.border && colors.border
         )
       )}
     >
