@@ -1,12 +1,10 @@
 import { ComponentPropsWithoutRef, ElementType } from "react";
+import { TCard } from "./types";
 
 export type CardProps<T extends ElementType> = {
-  image: string;
-  tag: string;
-  title: string;
-  subtitle: string;
   as?: T;
-} & ComponentPropsWithoutRef<T>;
+} & ComponentPropsWithoutRef<T> &
+  TCard;
 
 function Card<T extends ElementType = "button">({
   as,

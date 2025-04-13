@@ -1,4 +1,4 @@
-import { TCard } from "./types";
+import { TCard } from "@/components/Card/types";
 
 export const articles: TCard[] = [
   {
