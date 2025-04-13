@@ -1,8 +1,8 @@
 'use client'
 
 import logo from '@/assets/cocriar-icon-footer.png'
-import iconArrowRight from '@/assets/icons/arrow-right.png'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import { useForm } from 'react-hook-form'
 import { schemaEmail, TSchemaEmail } from './schema'
@@ -43,7 +43,7 @@ function FormEmail() {
           aria-label="Enviar e-mail"
           className="bg-gold-100 h-[50px] min-w-[50px] rounded-t-lg flex flex-col items-center justify-center cursor-pointer font-medium"
         >
-          <Image src={iconArrowRight} alt="" width={20} height={20} />
+          <ChevronRight width={20} height={20} className="text-gray-500" />
         </button>
 
         <span className="text-sm absolute text-red-400 bottom-[-26px]">
