@@ -37,11 +37,13 @@ function FormEmail() {
           className="h-[50px] text-neutral-0 bg-transparent placeholder:text-base placeholder:font-inter outline-none m-0 w-full"
           type="text"
           placeholder="Endereço de e-mail"
+          data-testid="email-subscribe"
         />
         <button
           type="submit"
           aria-label="Enviar e-mail"
           className="bg-gold-100 h-[50px] min-w-[50px] rounded-t-lg flex flex-col items-center justify-center cursor-pointer font-medium"
+          data-testid="submit-subscribe"
         >
           <ChevronRight width={20} height={20} className="text-gray-500" />
         </button>

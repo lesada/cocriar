@@ -7,7 +7,10 @@ import { socialMedia } from './constants/socialMedia'
 
 function Footer() {
   return (
-    <footer className="bg-blue-700 min-h-[440px] p-[28px] px-[40px] w-full lg:py-12 lg:px-[155px]">
+    <footer
+      className="bg-blue-700 min-h-[440px] p-[28px] px-[40px] w-full lg:py-12 lg:px-[155px]"
+      data-testid="footer"
+    >
       <div className="flex flex-col gap-8 lg:gap-12 xl:flex-row xl:items-center">
         <FormEmail />
 
