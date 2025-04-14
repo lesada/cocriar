@@ -1,12 +1,10 @@
 import { ComponentPropsWithoutRef, ElementType } from "react";
+import { TCard } from "./types";
 
 export type CardProps<T extends ElementType> = {
-  image: string;
-  tag: string;
-  title: string;
-  subtitle: string;
   as?: T;
-} & ComponentPropsWithoutRef<T>;
+} & ComponentPropsWithoutRef<T> &
+  TCard;
 
 function Card<T extends ElementType = "button">({
   as,
@@ -28,9 +26,9 @@ function Card<T extends ElementType = "button">({
       <div className="w-full h-48">
         <img src={image} alt="" className="w-full h-full object-cover" />
       </div>
-      <h5 className="bg-blue-500 text-neutral-0 px-3 py-1 w-fit rounded-xl text-sm font-inter">
+      <span className="bg-blue-500 text-neutral-0 px-3 py-1 w-fit rounded-xl text-sm font-inter">
         {tag}
-      </h5>
+      </span>
       <h4 className="text-xl text-neutral-800 font-poppins font-semibold">
         {title}
       </h4>
