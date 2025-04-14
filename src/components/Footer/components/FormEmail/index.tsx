@@ -1,6 +1,6 @@
 'use client'
 
-import logo from '@/assets/cocriar-icon-footer.png'
+import logo from '@/assets/cocriar-icon-reduced.png'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
