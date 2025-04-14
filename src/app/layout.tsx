@@ -26,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${inter.variable} ${poppins.variable}`}>
+      <body
+        className={`${inter.variable} ${poppins.variable} ${poppins.className}`}
+      >
         <Header />
         {children}
       </body>
