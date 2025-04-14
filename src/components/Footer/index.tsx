@@ -8,7 +8,7 @@ import { socialMedia } from './constants/socialMedia'
 function Footer() {
   return (
     <footer
-      className="bg-blue-700 min-h-[440px] p-[28px] px-[40px] w-full lg:py-12 lg:px-[155px]"
+      className="bg-blue-700 min-h-110 p-7 px-10 w-full lg:py-12 lg:px-40"
       data-testid="footer"
     >
       <div className="flex flex-col gap-8 lg:gap-12 xl:flex-row xl:items-center">
@@ -24,7 +24,7 @@ function Footer() {
                 {secao.title}
               </p>
 
-              <ul className="flex flex-col gap-3 text-center xl:max-w-[145px] xl:text-start">
+              <ul className="flex flex-col gap-3 text-center xl:max-w-36 xl:text-start">
                 {secao.links.map((link) => (
                   <li key={link.name}>
                     <Link
