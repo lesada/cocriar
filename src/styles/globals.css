@@ -3,8 +3,8 @@
 @import "./utils.css";
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 8rem;
-  }
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 8rem;
+	}
 }
