@@ -16,7 +16,10 @@ function Solutions() {
         {solutions.map((solution) => {
           return (
             <Fragment key={solution.name}>
-              <h5 className="font-poppins text-2xl font-semibold leading-relaxed mb-6">
+              <h5
+                className="font-poppins text-2xl font-semibold leading-relaxed mb-6"
+                id={solution.id}
+              >
                 {solution.name}
               </h5>
               <div className="flex items-stretch gap-4 flex-wrap justify-center mb-12">

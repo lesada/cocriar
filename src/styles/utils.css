@@ -1,0 +1,9 @@
+@layer components {
+  .title {
+    @apply font-poppins text-4xl font-medium leading-[120%] text-neutral-1000 mb-4;
+  }
+
+  .text {
+    @apply font-inter font-normal leading-9 text-xl text-neutral-800;
+  }
+}

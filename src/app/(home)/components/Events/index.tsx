@@ -12,7 +12,7 @@ function Events() {
   const router = useRouter();
 
   return (
-    <Section tag="Eventos">
+    <Section tag="Eventos" id="eventos">
       <h3 className="title">Próximos eventos</h3>
       <div className="flex gap-8 flex-wrap justify-center">
         {events.slice(0, 3).map((event) => (

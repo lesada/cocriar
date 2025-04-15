@@ -1,8 +1,8 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
-import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Co-criar",

@@ -1,24 +1,24 @@
 export const footerSections = [
-	{
-		title: "Soluções",
-		links: [
-			{ name: "Para Você", path: "/" },
-			{ name: "Para sua empresa", path: "/" },
-			{ name: "Eventos", path: "/" },
-		],
-	},
-	{
-		title: "Sobre",
-		links: [
-			{ name: "A Cocriar", path: "/" },
-			{ name: "Letiene Ferreira", path: "/" },
-		],
-	},
-	{
-		title: "Help",
-		links: [
-			{ name: "FAQs", path: "/" },
-			{ name: "Contato", path: "/" },
-		],
-	},
+  {
+    title: "Soluções",
+    links: [
+      { name: "Para você", path: "/#paraVoce" },
+      { name: "Para sua empresa", path: "/#paraSuaEmpresa" },
+      { name: "Eventos", path: "/#eventos" },
+    ],
+  },
+  {
+    title: "Sobre",
+    links: [
+      { name: "A Cocriar", path: "/sobre" },
+      { name: "Letiene Ferreira", path: "/sobre#dono" },
+    ],
+  },
+  {
+    title: "Help",
+    links: [
+      { name: "FAQs", path: "/contato" },
+      { name: "Contato", path: "/contato#form" },
+    ],
+  },
 ];
