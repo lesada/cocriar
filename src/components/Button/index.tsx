@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
 import { twMerge } from "tailwind-merge";
 
 type Variant = "primary" | "secondary" | "tertiary";
