@@ -94,7 +94,7 @@ function Sobre() {
 							</p>
 						</div>
 					</div>
-					<div className="shrink-0 basis-md flex-1 w-fit flex items-center justify-end ">
+					<div className="shrink-0 basis-md flex-1 w-fit flex items-center justify-center ">
 						<Image
 							src={owner}
 							alt="Letiene Ferreira"
