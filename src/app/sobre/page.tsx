@@ -1,8 +1,14 @@
+import hero from "@/assets/hero-about.png";
+import owner from "@/assets/owner.png";
 import Section from "@/components/Section";
+import Image from "next/image";
 
 function Sobre() {
 	return (
 		<main>
+			<div className="w-full">
+				<Image src={hero} alt="" width={1440} height={589} />
+			</div>
 			<Section tag="Quem somos?">
 				<div className="flex flex-col gap-12">
 					<div>
@@ -49,41 +55,52 @@ function Sobre() {
 					</div>
 				</div>
 			</Section>
-			<Section tag="Founder Co-criar">
-				<div className="flex flex-col gap-12">
-					<div>
-						<h3 className="title">Sobre a Letiene Ferreira</h3>
-						<hr className="detach-hr" />
+			<Section tag="Founder Co-criar" id="dono">
+				<div className="flex flex-wrap gap-10 shrink-0">
+					<div className="shrink-0 flex flex-col gap-12 flex-1 basis-md">
+						<div>
+							<h3 className="title">Sobre a Letiene Ferreira</h3>
+							<hr className="detach-hr" />
+						</div>
+						<div className="flex flex-col gap-8">
+							<p className="text-lg text-neutral-700 font-inter">
+								Fundadora da Co-criar e facilitadora organizacional.
+							</p>
+							<p className="text-lg text-neutral-700 font-inter">
+								Mestre em Psicologia e Saúde (UFCSPA), pesquisando sobre
+								Psicologia Organizacional Positiva e Liderança Engajadora;
+								Pós-graduação em Liderança de Negócios e Pessoas (ESPM),
+								Especialização em Educação Permanente em Saúde (UFRGS) e
+								Graduação em Psicologia (PUCRS).
+							</p>
+							<p className="text-lg text-neutral-700 font-inter">
+								Formação em Coaching e Mentoring pelo Institutho dy Crescere
+								Personas; Especialização em Neurocoaching
+								(Neuroleadership/Fellipelli); Seminário Avançado em Liderança e
+								Cultura (Rosemary Napper/UK); Coaching de Times (Georgina
+								Woudstra/UK); Desenvolvimento de Facilitadores, Educadores e
+								Treinadores (Rosemary Napper/UK); Coaching Executivo pela
+								Academy of Executive Coaching; Qualificação MBTI Integrado Step
+								I e II (Fellipelli).
+							</p>
+							<p className="text-lg text-neutral-700 font-inter">
+								Cocoordenadora do MBA em Liderança e Comportamento
+								Organizacional 8ª Edição e Professora na Especialização em
+								Psicologia Organizacional e do Trabalho na IMED Passo Fundo.
+								Facilitadora parceira de programas de Desenvolvimento
+								Organizacional no ICP. Pesquisadora colaboradora do Núcleo de
+								Estudos em Psicologia Positiva Organizacional e do Trabalho da
+								UFCSPA.
+							</p>
+						</div>
 					</div>
-					<div className="flex flex-col gap-8">
-						<p className="text-lg text-neutral-700 font-inter">
-							Fundadora da Co-criar e facilitadora organizacional.
-						</p>
-						<p className="text-lg text-neutral-700 font-inter">
-							Mestre em Psicologia e Saúde (UFCSPA), pesquisando sobre
-							Psicologia Organizacional Positiva e Liderança Engajadora;
-							Pós-graduação em Liderança de Negócios e Pessoas (ESPM),
-							Especialização em Educação Permanente em Saúde (UFRGS) e Graduação
-							em Psicologia (PUCRS).
-						</p>
-						<p className="text-lg text-neutral-700 font-inter">
-							Formação em Coaching e Mentoring pelo Institutho dy Crescere
-							Personas; Especialização em Neurocoaching
-							(Neuroleadership/Fellipelli); Seminário Avançado em Liderança e
-							Cultura (Rosemary Napper/UK); Coaching de Times (Georgina
-							Woudstra/UK); Desenvolvimento de Facilitadores, Educadores e
-							Treinadores (Rosemary Napper/UK); Coaching Executivo pela Academy
-							of Executive Coaching; Qualificação MBTI Integrado Step I e II
-							(Fellipelli).
-						</p>
-						<p className="text-lg text-neutral-700 font-inter">
-							Cocoordenadora do MBA em Liderança e Comportamento Organizacional
-							8ª Edição e Professora na Especialização em Psicologia
-							Organizacional e do Trabalho na IMED Passo Fundo. Facilitadora
-							parceira de programas de Desenvolvimento Organizacional no ICP.
-							Pesquisadora colaboradora do Núcleo de Estudos em Psicologia
-							Positiva Organizacional e do Trabalho da UFCSPA.
-						</p>
+					<div className="shrink-0 basis-md flex-1 w-fit flex items-center justify-end ">
+						<Image
+							src={owner}
+							alt="Letiene Ferreira"
+							width={466}
+							height={699}
+						/>
 					</div>
 				</div>
 			</Section>
