@@ -1,5 +1,6 @@
 import Articles from "./components/Articles";
 import Events from "./components/Events";
+import ScheduleCard from "./components/ScheduleCard";
 import Solutions from "./components/Solutions";
 import Testimonials from "./components/Testimonials";
 
@@ -8,6 +9,7 @@ export default function Home() {
 		<main>
 			<Solutions />
 			<Events />
+			<ScheduleCard />
 			<Articles />
 			<Testimonials />
 		</main>
