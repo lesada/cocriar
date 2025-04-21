@@ -5,7 +5,7 @@ export const articles: TCard[] = [
 		image: "https://placehold.co/600x400",
 		title: "5 Conteúdos que você precisa ler em 2023",
 		subtitle:
-			"É um ecossistema vivo de criatividade e inovação focado em resultados. ",
+			"É um ecossistema vivo de criatividade e inovação focado em resultados.",
 		tag: "Tecnologia",
 		slug: "x",
 	},
@@ -13,7 +13,7 @@ export const articles: TCard[] = [
 		image: "https://placehold.co/600x400",
 		title: "5 Conteúdos que você precisa ler em 2023",
 		subtitle:
-			"É um ecossistema vivo de criatividade e inovação focado em resultados. ",
+			"É um ecossistema vivo de criatividade e inovação focado em resultados.",
 		tag: "Tecnologia",
 		slug: "y",
 	},
@@ -21,7 +21,7 @@ export const articles: TCard[] = [
 		image: "https://placehold.co/600x400",
 		title: "5 Conteúdos que você precisa ler em 2023",
 		subtitle:
-			"É um ecossistema vivo de criatividade e inovação focado em resultados. ",
+			"É um ecossistema vivo de criatividade e inovação focado em resultados.",
 		tag: "Tecnologia",
 		slug: "v",
 	},
@@ -29,7 +29,7 @@ export const articles: TCard[] = [
 		image: "https://placehold.co/600x400",
 		title: "5 Conteúdos que você precisa ler em 2023",
 		subtitle:
-			"É um ecossistema vivo de criatividade e inovação focado em resultados. ",
+			"É um ecossistema vivo de criatividade e inovação focado em resultados.",
 		tag: "Tecnologia",
 		slug: "xf",
 	},

@@ -48,7 +48,7 @@ export default function Testimonials() {
 						{slides.map((slide) => (
 							<div
 								key={slide.name}
-								className="max-w-[30rem] w-full  bg-neutral-0 p-10 rounded-lg shadow-sm  flex flex-col justify-between shrink-0 "
+								className="max-w-[30rem] w-full bg-neutral-0 p-10 rounded-lg shadow-sm  flex flex-col justify-between shrink-0 "
 							>
 								<h4 className="text-xl font-bold text-neutral-1000 font-inter ">
 									{slide.name}
