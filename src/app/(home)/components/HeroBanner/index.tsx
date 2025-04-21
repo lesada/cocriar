@@ -3,9 +3,9 @@ import Image from 'next/image'
 
 function HeroBanner() {
   return (
-    <section className="flex flex-col pt-10 px-8 gap-5 relative justify-between md:flex-row lg:px-32 lg:h-[39.93rem]">
+    <section className="flex flex-col pt-10 px-8 gap-5 relative justify-between md:flex-row lg:px-32 lg:h-[40rem]">
       <div className="flex flex-col gap-5 mx-auto md:gap-7 md:flex-row lg:items-center">
-        <div className="flex flex-col gap-4 md:max-w-[665px] lg:mt-25">
+        <div className="flex flex-col gap-4 md:max-w-[42rem] lg:mt-25">
           <span className="font-inter uppercase text-base text-purple-900 lg:text-lg">
             Co-criar desenvolvimento
           </span>
