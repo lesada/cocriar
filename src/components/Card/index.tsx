@@ -26,9 +26,7 @@ function Card<T extends ElementType = "button">({
 			<div className="w-full h-48">
 				<img src={image} alt="" className="w-full h-full object-cover" />
 			</div>
-			<span className="bg-blue-500 text-neutral-0 px-3 py-1 w-fit rounded-xl text-sm font-inter">
-				{tag}
-			</span>
+			<span className="tag">{tag}</span>
 			<h4 className="text-xl text-neutral-800 font-poppins font-semibold">
 				{title}
 			</h4>
