@@ -14,6 +14,7 @@ export type TSolutionsItem = {
 };
 
 export type TSolutionsSection = {
+	id: string;
 	name: string;
 	items: TSolutionsItem[];
 	colors?: TColors;

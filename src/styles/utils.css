@@ -1,0 +1,13 @@
+@layer components {
+	.title {
+		@apply font-poppins text-4xl font-medium leading-[120%] text-neutral-1000 mb-4;
+	}
+
+	.text {
+		@apply font-inter font-normal leading-9 text-xl text-neutral-800;
+	}
+
+	.detach-hr {
+		@apply w-40 border-0 h-2 bg-cyan-600 rounded-lg;
+	}
+}
