@@ -1,6 +1,6 @@
-import owner from '@/assets/owner.png'
-import Section from '@/components/Section'
-import Image from 'next/image'
+import owner from "@/assets/owner.png";
+import Section from "@/components/Section";
+import Image from "next/image";
 
 function InfoBanner() {
   return (
@@ -17,7 +17,7 @@ function InfoBanner() {
             atuação. <br />
             Para isso, acreditamos que as melhores possibilidades de
             desenvolvimento são criadas através da colaboração e de permitir que
-            as pessoas se encontrem, gerando novos saberes e novas soluções.{' '}
+            as pessoas se encontrem, gerando novos saberes e novas soluções.{" "}
             <br />
             Estimular a cocriação de alternativas contribui na resolução de
             situações complexas.
@@ -38,7 +38,7 @@ function InfoBanner() {
         />
       </div>
     </Section>
-  )
+  );
 }
 
-export default InfoBanner
+export default InfoBanner;
