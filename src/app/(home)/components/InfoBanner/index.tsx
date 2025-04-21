@@ -25,7 +25,7 @@ function InfoBanner() {
 
           <button
             type="button"
-            className="w-full bg-blue-800 font-semibold text-white text-sm h-14 rounded-3xl mt-3 md:max-w-72 lg:text-base lg:mt-8"
+            className="w-full cursor-pointer bg-blue-800 font-semibold text-white text-sm h-14 rounded-3xl mt-3 md:max-w-72 lg:text-base lg:mt-8"
           >
             Saiba Mais
           </button>
