@@ -5,7 +5,7 @@ import Image from "next/image";
 function InfoBanner() {
   return (
     <Section tag="Por que a co-criar?" className="w-full">
-      <div className="flex flex-col gap-10 max-w-[1440px] items-center md:flex-row md:items-start mx-auto">
+      <div className="flex flex-col gap-10 max-w-[90rem] items-center md:flex-row md:items-start mx-auto">
         <div className="flex flex-col gap-4">
           <h2 className="font-poppins font-semibold text-4xl">
             Nosso proposito é movimentar e evoluir
