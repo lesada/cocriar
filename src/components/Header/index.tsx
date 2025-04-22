@@ -21,7 +21,7 @@ function Header() {
 		pathname === path ? "text-blue-800 font-bold" : "text-neutral-600";
 
 	return (
-		<header className="flex items-center justify-center gap-16 py-6 lg:px-12 w-full border-b-1 border-neutral-100 lg:justify-start sticky top-0 bg-neutral-0">
+		<header className="flex items-center justify-center gap-16 py-6 lg:px-12 w-full border-b-1 border-neutral-100 lg:justify-start sticky top-0 bg-neutral-0 z-50">
 			<div className="w-10 lg:hidden" />
 			<Image
 				src={logo}
