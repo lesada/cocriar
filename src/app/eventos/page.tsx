@@ -49,14 +49,6 @@ function Artigos() {
 							</div>
 						);
 					})}
-					<Button
-						variant="primary"
-						outlined
-						className="mx-auto mt-4 rounded-lg"
-						type="button"
-					>
-						Carregar mais eventos
-					</Button>
 				</div>
 			</Section>
 		</main>
