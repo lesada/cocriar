@@ -1,9 +1,11 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Loader from "@/components/Loader";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
 	title: "Co-criar",
@@ -31,9 +33,11 @@ export default function RootLayout({
 			<body
 				className={`${inter.variable} ${poppins.variable} ${poppins.className}`}
 			>
-				<Header />
-				<NuqsAdapter>{children}</NuqsAdapter>
-				<Footer />
+				<Suspense fallback={<Loader />}>
+					<Header />
+					<NuqsAdapter>{children}</NuqsAdapter>
+					<Footer />
+				</Suspense>
 			</body>
 		</html>
 	);
