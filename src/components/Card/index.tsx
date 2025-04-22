@@ -27,10 +27,10 @@ function Card<T extends ElementType = "button">({
 				<img src={image} alt="" className="w-full h-full object-cover" />
 			</div>
 			<span className="tag">{tag}</span>
-			<h4 className="text-xl text-neutral-800 font-poppins font-semibold">
+			<h4 className="font-poppins font-semibold text-neutral-800 text-xl">
 				{title}
 			</h4>
-			<p className="text-lg text-neutral-700 font-inter leading-relaxed">
+			<p className="font-inter text-neutral-700 text-lg text-ellipsis line-clamp-3 leading-relaxed">
 				{subtitle}
 			</p>
 			{children}
