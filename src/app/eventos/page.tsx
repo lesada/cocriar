@@ -19,7 +19,7 @@ function Artigos() {
 								className="flex md:flex-row flex-col gap-6 bg-neutral-0 shadow-xl p-4 rounded-lg text-left cursor-pointer"
 								key={event.slug}
 							>
-								<div className="flex flex-col gap-4 w-full max-w-sm shrink-0">
+								<div className="flex flex-col gap-4 w-full max-w-md shrink-0">
 									<span className="tag">{event.tag}</span>
 									<div className="w-full shrink-0">
 										<img
@@ -41,6 +41,7 @@ function Artigos() {
 										type="button"
 										variant="secondary"
 										outlined
+										className="w-full"
 									>
 										Inscreva-se
 									</Button>
