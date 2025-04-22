@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 export const metadata: Metadata = {
 	title: "Co-criar",
@@ -31,7 +32,7 @@ export default function RootLayout({
 				className={`${inter.variable} ${poppins.variable} ${poppins.className}`}
 			>
 				<Header />
-				{children}
+				<NuqsAdapter>{children}</NuqsAdapter>
 				<Footer />
 			</body>
 		</html>
