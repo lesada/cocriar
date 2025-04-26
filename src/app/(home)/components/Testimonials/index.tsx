@@ -8,10 +8,11 @@ import { useCallback, useEffect, useState } from "react";
 import { slides } from "./constants";
 
 export default function Testimonials() {
-	const [emblaRef, emblaApi] = useEmblaCarousel({
-		align: "start",
-		dragFree: true,
-	});
+	const [emblaRef, emblaApi] =
+		useEmblaCarousel({
+			align: "start",
+			dragFree: true,
+		}) ?? [];
 
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
