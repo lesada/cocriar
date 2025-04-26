@@ -1,9 +1,9 @@
 "use client";
 
 import Section from "@/components/Section";
+import { Icon } from "@iconify/react";
 import clsx from "clsx";
 import useEmblaCarousel from "embla-carousel-react";
-import { Star } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { slides } from "./constants";
 
@@ -36,44 +36,47 @@ export default function Testimonials() {
 
 	return (
 		<Section tag="Depoimentos de Clientes" className="bg-neutral-100">
-			<h3 className="title my-4 text-center">
+			<h3 className="my-4 text-center title">
 				Empresas que confiam na Co-criar
 			</h3>
-			<p className="text text-center mb-4">
+			<p className="mb-4 text-center text">
 				O que nossos parceiros dizem sobre nós
 			</p>
 			<div className="w-full">
-				<div className="overflow-hidden py-8" ref={emblaRef}>
-					<div className="flex gap-6 items-stretch">
+				<div className="py-8 overflow-hidden" ref={emblaRef}>
+					<div className="flex items-stretch gap-6">
 						{slides.map((slide) => (
 							<div
 								key={slide.name}
-								className="max-w-[30rem] w-full bg-neutral-0 p-10 rounded-lg shadow-sm  flex flex-col justify-between shrink-0 "
+								className="flex flex-col justify-between bg-neutral-0 shadow-sm p-10 rounded-lg w-full max-w-[30rem] shrink-0"
 							>
-								<h4 className="text-xl font-bold text-neutral-1000 font-inter ">
+								<h4 className="font-inter font-bold text-neutral-1000 text-xl">
 									{slide.name}
 								</h4>
-								<p className="text-base text-neutral-700 font-poppins mb-6">
+								<p className="mb-6 font-poppins text-neutral-700 text-base">
 									{slide.subtitle}
 								</p>
 
-								<p className="text-normal text-neutral-1000 mb-6 flex-1">
+								<p className="flex-1 mb-6 text-neutral-1000 text-normal">
 									{slide.text}
 								</p>
-								<div className="mb-2 flex">
+								<div className="flex mb-2">
 									{Array.from({ length: 5 }).map((_, i) => (
-										<Star
+										<Icon
+											icon={
+												i < Math.round(slide.rating)
+													? "material-symbols:star-rate-rounded"
+													: "material-symbols:star-rate-outline-rounded"
+											}
+											width={20}
+											height={20}
 											// biome-ignore lint/suspicious/noArrayIndexKey: <the array is meant to create the starts without copy pasting code>
 											key={i}
-											size={20}
 											className={`${
 												i < Math.round(slide.rating)
 													? "text-gold-200"
 													: "text-neutral-300"
 											}`}
-											fill={
-												i < Math.round(slide.rating) ? "currentColor" : "none"
-											}
 										/>
 									))}
 								</div>
