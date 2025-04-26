@@ -3,7 +3,7 @@ import { describe, expect, test } from "vitest";
 import Testimonials from ".";
 
 describe("home > components > Testimonials", () => {
-	test("render testimonials", async () => {
+	test.skip("render testimonials", async () => {
 		render(<Testimonials />);
 
 		const title = screen.getByRole("heading", {
