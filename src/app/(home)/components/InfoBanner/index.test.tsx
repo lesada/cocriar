@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import InfoBanner from ".";
 
-describe("components > Info Banner", () => {
+describe("home > components > Info Banner", () => {
 	test("render info banner without errors", async () => {
 		render(<InfoBanner />);
 

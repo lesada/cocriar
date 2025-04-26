@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, test } from "vitest";
 import Solutions from ".";
 
-describe("components > Solutions", () => {
+describe("home > components > Solutions", () => {
 	test("render solutions without errors", async () => {
 		render(<Solutions />);
 
