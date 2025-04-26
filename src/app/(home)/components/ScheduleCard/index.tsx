@@ -12,7 +12,7 @@ function ScheduleCard() {
 					</h2>
 					<p className="font-poppins text-white text-base lg:text-lg">
 						Podemos ajudar você e sua empresa a crescer através de soluções e
-						metodologias{" "}
+						metodologias
 					</p>
 				</div>
 
