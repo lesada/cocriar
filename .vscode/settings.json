@@ -1,4 +1,8 @@
 {
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "biomejs.biome",
+	"sonarlint.connectedMode.project": {
+		"connectionId": "lesada",
+		"projectKey": "SEU_PROJECT_KEY"
+	}
 }
