@@ -2,7 +2,14 @@
 	"name": "cocriar",
 	"version": "0.1.0",
 	"private": true,
-
+	"scripts": {
+		"dev": "next dev --turbopack",
+		"build": "next build",
+		"start": "next start",
+		"test": "vitest",
+		"coverage": "vitest run --coverage",
+		"lint": "npx @biomejs/biome check --write ./src"
+	},
 	"dependencies": {
 		"@hookform/resolvers": "^5.0.1",
 		"@next/font": "^14.2.15",
