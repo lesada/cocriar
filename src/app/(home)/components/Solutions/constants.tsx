@@ -2,6 +2,7 @@ import type { TSolutionsSection } from "./types";
 
 export const solutions: TSolutionsSection[] = [
 	{
+		id: "paraVoce",
 		name: "Para você",
 		items: [
 			{
@@ -32,6 +33,7 @@ export const solutions: TSolutionsSection[] = [
 		],
 	},
 	{
+		id: "paraSuaEmpresa",
 		name: "Para sua empresa",
 		colors: {
 			border: "border-cyan-300",

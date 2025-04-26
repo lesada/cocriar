@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "./variables.css";
+@import "./utils.css";
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 8rem;
+	}
+
+	::selection {
+		background-color: var(--color-cyan-700);
+		color: var(--color-neutral-50);
+	}
+}

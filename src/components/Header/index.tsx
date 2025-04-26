@@ -1,7 +1,6 @@
 "use client";
 
 import logo from "@/assets/logo.png";
-import { routes } from "@/routes";
 import clsx from "clsx";
 import { MenuIcon } from "lucide-react";
 import Image from "next/image";
@@ -9,6 +8,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Button from "../Button";
+import { routes } from "./constants";
 
 function Header() {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +21,7 @@ function Header() {
 		pathname === path ? "text-blue-800 font-bold" : "text-neutral-600";
 
 	return (
-		<header className="flex items-center justify-center gap-16 py-6 lg:px-12 w-full border-b-1 border-neutral-100 lg:justify-start">
+		<header className="flex items-center justify-center gap-16 py-6 lg:px-12 w-full border-b-1 border-neutral-100 lg:justify-start sticky top-0 bg-neutral-0">
 			<div className="w-10 lg:hidden" />
 			<Image
 				src={logo}
