@@ -12,7 +12,7 @@ vi.mock("embla-carousel-react", () => {
 
 describe("home > components > Testimonials", () => {
 	afterAll(() => {
-		vi.resetAllMocks(); // Reseta todos os mocks
+		vi.resetAllMocks();
 	});
 
 	test("render testimonials", async () => {
