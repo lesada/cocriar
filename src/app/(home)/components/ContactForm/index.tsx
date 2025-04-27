@@ -30,7 +30,7 @@ function ContactForm() {
 
 	return (
 		<Section className="bg-cyan-200">
-			<div className="flex md:flex-row flex-col gap-5 lg:gap-16">
+			<div className="flex md:flex-row flex-col items-center lg:items-start gap-5 lg:gap-16">
 				<div className="flex flex-col gap-6 lg:pt-20">
 					<h2 className="font-poppins font-semibold text-blue-900 text-2xl md:text-4xl leading-relaxed">
 						Vamos juntos Co-criar inovação e desenvolvimento?
