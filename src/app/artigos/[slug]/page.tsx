@@ -3,7 +3,7 @@
 import hero from "@/assets/hero-about.png";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
-import { ArrowRight } from "lucide-react";
+import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -55,7 +55,7 @@ function Article() {
 					className="flex items-center gap-0.5 mt-8 ml-auto w-fit font-bold text-blue-950 text-lg"
 				>
 					Ver mais artigos
-					<ArrowRight />
+					<Icon icon="material-symbols:arrow-right-alt-rounded" />
 				</Link>
 			</Section>
 		</main>
