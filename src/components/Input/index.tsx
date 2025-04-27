@@ -5,6 +5,7 @@ import {
 	type FieldValues,
 	type Path,
 } from "react-hook-form";
+import { IMaskInput } from "react-imask";
 import { twMerge } from "tailwind-merge";
 
 type TInputProps<T extends FieldValues> = {
@@ -14,6 +15,7 @@ type TInputProps<T extends FieldValues> = {
 	type?: string;
 	control: Control<T>;
 	error?: string;
+	mask?: string;
 };
 
 function Input<T extends FieldValues>({
@@ -23,6 +25,7 @@ function Input<T extends FieldValues>({
 	label,
 	placeholder,
 	type = "text",
+	mask,
 }: TInputProps<T>) {
 	return (
 		<div className="flex flex-col gap-1 w-full">
@@ -49,12 +52,13 @@ function Input<T extends FieldValues>({
 								)}
 							/>
 						) : (
-							<input
+							<IMaskInput
 								{...field}
 								id={name}
 								type={type}
 								placeholder={placeholder}
 								value={field.value}
+								mask={mask}
 								className={twMerge(
 									clsx(
 										"bg-white/95 p-3 md:p-4 rounded-lg outline-1 outline-cyan-200 w-full text-neutral-400 placeholder:text-neutral-200 text-sm placeholder:text-sm",

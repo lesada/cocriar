@@ -3,16 +3,18 @@
 import Input from "@/components/Input";
 import Section from "@/components/Section";
 import { yupResolver } from "@hookform/resolvers/yup";
+import clsx from "clsx";
 import { useForm } from "react-hook-form";
+import { twMerge } from "tailwind-merge";
 import { type TSchemaContactForm, schemaContactForm } from "./schema";
 
 function ContactForm() {
 	const {
-		register,
 		handleSubmit,
 		control,
-		formState: { errors },
+		formState: { errors, isValid },
 	} = useForm<TSchemaContactForm>({
+		mode: "onTouched",
 		resolver: yupResolver(schemaContactForm),
 		defaultValues: {
 			email: "",
@@ -89,6 +91,7 @@ function ContactForm() {
 							name="phone"
 							placeholder="Digite seu nome"
 							error={errors.phone?.message}
+							mask="(00) 00000-0000"
 						/>
 
 						<Input<TSchemaContactForm>
@@ -102,7 +105,14 @@ function ContactForm() {
 
 						<button
 							type="submit"
-							className="bg-blue-800 mt-3 px-8 md:px-4 py-3 md:py-4.5 rounded-3xl w-full md:max-w-3xs font-semibold text-white text-sm cursor-pointer"
+							className={twMerge(
+								clsx(
+									"bg-blue-800 mt-3 px-8 md:px-4 py-3 md:py-4.5 rounded-3xl w-full md:max-w-3xs font-semibold text-white text-sm cursor-pointer",
+									!isValid &&
+										"bg-blue-800/70 text-neutral-400 cursor-not-allowed",
+								),
+							)}
+							disabled={!isValid}
 						>
 							Enviar
 						</button>
