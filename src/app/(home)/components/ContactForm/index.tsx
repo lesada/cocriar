@@ -67,7 +67,7 @@ function ContactForm() {
 						className="flex flex-col items-center gap-4 w-full"
 						onSubmit={handleSubmit(submitContactForm)}
 					>
-						<Input
+						<Input<TSchemaContactForm>
 							control={control}
 							label="Nome"
 							name="name"
@@ -75,7 +75,7 @@ function ContactForm() {
 							error={errors.name?.message}
 						/>
 
-						<Input
+						<Input<TSchemaContactForm>
 							control={control}
 							label="E-mail"
 							name="email"
@@ -83,7 +83,7 @@ function ContactForm() {
 							error={errors.email?.message}
 						/>
 
-						<Input
+						<Input<TSchemaContactForm>
 							control={control}
 							label="Celular"
 							name="phone"
@@ -91,7 +91,7 @@ function ContactForm() {
 							error={errors.phone?.message}
 						/>
 
-						<Input
+						<Input<TSchemaContactForm>
 							control={control}
 							label="Como podemos te ajudar?"
 							name="help"

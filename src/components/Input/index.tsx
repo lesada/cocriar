@@ -1,25 +1,29 @@
 import clsx from "clsx";
-import { Controller } from "react-hook-form";
+import {
+	type Control,
+	Controller,
+	type FieldValues,
+	type Path,
+} from "react-hook-form";
 import { twMerge } from "tailwind-merge";
 
-type TInputProps = {
-	name: string;
+type TInputProps<T extends FieldValues> = {
+	name: Path<T>;
 	label: string;
 	placeholder: string;
 	type?: string;
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	control: any;
+	control: Control<T>;
 	error?: string;
 };
 
-function Input({
+function Input<T extends FieldValues>({
 	control,
 	error,
 	name,
 	label,
 	placeholder,
 	type = "text",
-}: TInputProps) {
+}: TInputProps<T>) {
 	return (
 		<div className="flex flex-col gap-1 w-full">
 			<label htmlFor={name} className="font-inter text-white text-sm">
