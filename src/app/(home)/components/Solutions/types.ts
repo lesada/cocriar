@@ -1,5 +1,3 @@
-import type { IconName } from "lucide-react/dynamic";
-
 export type TColors = {
 	detach: string;
 	border: string;
@@ -7,7 +5,7 @@ export type TColors = {
 };
 
 export type TSolutionsItem = {
-	icon: IconName;
+	icon: string;
 	title: string;
 	content: string;
 	detach: boolean;

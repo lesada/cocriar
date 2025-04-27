@@ -2,7 +2,7 @@
 
 import Card from "@/components/Card";
 import Section from "@/components/Section";
-import { ArrowRight } from "lucide-react";
+import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { articles } from "./constants";
@@ -12,7 +12,7 @@ function Articles() {
 
 	return (
 		<Section tag="Blog Co-criar">
-			<div className="flex gap-8 flex-wrap justify-center">
+			<div className="flex flex-wrap justify-center gap-8">
 				{articles.slice(0, 3).map((article) => (
 					<Card
 						image={article.image}
@@ -27,10 +27,10 @@ function Articles() {
 			</div>
 			<Link
 				href="/artigos"
-				className="ml-auto font-bold text-lg w-fit flex items-center gap-0.5 text-blue-950 mt-8"
+				className="flex items-center gap-0.5 mt-8 ml-auto w-fit font-bold text-blue-950 text-lg"
 			>
 				Ver mais artigos
-				<ArrowRight />
+				<Icon icon="material-symbols:arrow-right-alt-rounded" />
 			</Link>
 		</Section>
 	);
