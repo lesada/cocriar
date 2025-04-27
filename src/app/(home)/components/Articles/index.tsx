@@ -20,7 +20,7 @@ function Articles() {
 						tag={article.tag}
 						title={article.title}
 						key={article.slug}
-						onClick={() => router.push(`articles/${article.slug}`)}
+						onClick={() => router.push(`artigos/${article.slug}`)}
 						className="cursor-pointer"
 					/>
 				))}

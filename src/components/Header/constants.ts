@@ -20,7 +20,7 @@ export const routes = [
 		label: "Contato",
 	},
 	{
-		path: "/blog",
+		path: "/artigos",
 		label: "Blog",
 	},
 ];

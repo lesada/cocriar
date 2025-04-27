@@ -7,7 +7,7 @@ export const articles: TCard[] = [
 		subtitle:
 			"É um ecossistema vivo de criatividade e inovação focado em resultados.",
 		tag: "Tecnologia",
-		slug: "x",
+		slug: "5-conteudos",
 	},
 	{
 		image: "https://placehold.co/600x400",
@@ -15,7 +15,7 @@ export const articles: TCard[] = [
 		subtitle:
 			"É um ecossistema vivo de criatividade e inovação focado em resultados.",
 		tag: "Tecnologia",
-		slug: "y",
+		slug: "cyber",
 	},
 	{
 		image: "https://placehold.co/600x400",
@@ -23,7 +23,7 @@ export const articles: TCard[] = [
 		subtitle:
 			"É um ecossistema vivo de criatividade e inovação focado em resultados.",
 		tag: "Tecnologia",
-		slug: "v",
+		slug: "realidade",
 	},
 	{
 		image: "https://placehold.co/600x400",
@@ -31,6 +31,6 @@ export const articles: TCard[] = [
 		subtitle:
 			"É um ecossistema vivo de criatividade e inovação focado em resultados.",
 		tag: "Tecnologia",
-		slug: "xf",
+		slug: "revolucao",
 	},
 ];
