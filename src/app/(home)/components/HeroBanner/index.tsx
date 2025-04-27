@@ -4,7 +4,7 @@ import Image from "next/image";
 function HeroBanner() {
 	return (
 		<section className="relative flex md:flex-row flex-col justify-between gap-5 px-8 lg:px-32 pt-10 lg:h-[40rem]">
-			<div className="flex md:flex-row flex-col lg:items-center gap-5 md:gap-7 mx-auto">
+			<div className="flex md:flex-row flex-col md:items-center lg:items-center gap-5 md:gap-7 mx-auto max-w-[66.5rem]">
 				<div className="flex flex-col gap-4 lg:mt-25 md:max-w-[42rem]">
 					<span className="font-inter text-purple-900 text-base lg:text-lg uppercase">
 						Co-criar desenvolvimento
@@ -30,7 +30,7 @@ function HeroBanner() {
 					width={600}
 					height={600}
 					alt=""
-					className="mx-auto h-auto lg:h-full object-contain"
+					className="mx-auto md:max-w-[50%] h-auto lg:h-full object-contain"
 				/>
 			</div>
 		</section>
