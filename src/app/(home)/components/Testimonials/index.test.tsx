@@ -2,14 +2,6 @@ import { render, screen } from "@testing-library/react";
 import { afterAll, describe, expect, test, vi } from "vitest";
 import Testimonials from ".";
 
-vi.mock("embla-carousel-react", () => {
-	return {
-		__esModule: true,
-		default: vi.fn(),
-		useEmblaCarousel: vi.fn().mockReturnValue([vi.fn(), { on: vi.fn() }]),
-	};
-});
-
 describe("home > components > Testimonials", () => {
 	afterAll(() => {
 		vi.resetAllMocks();

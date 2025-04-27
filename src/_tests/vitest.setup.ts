@@ -2,6 +2,14 @@ import "@testing-library/jest-dom/vitest";
 import { cleanup } from "@testing-library/react";
 import { afterEach, vi } from "vitest";
 
+vi.mock("embla-carousel-react", () => {
+	return {
+		__esModule: true,
+		default: vi.fn(),
+		useEmblaCarousel: vi.fn().mockReturnValue([vi.fn(), { on: vi.fn() }]),
+	};
+});
+
 afterEach(() => {
 	cleanup();
 });
