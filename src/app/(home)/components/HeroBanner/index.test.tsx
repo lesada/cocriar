@@ -15,7 +15,5 @@ describe("home > components > Hero Banner", () => {
 			name: /agendar um horário/i,
 		});
 		expect(button).toBeVisible();
-
-		screen.logTestingPlaygroundURL();
 	});
 });
