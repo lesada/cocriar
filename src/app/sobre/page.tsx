@@ -3,7 +3,7 @@ import owner from "@/assets/owner.png";
 import Section from "@/components/Section";
 import Image from "next/image";
 
-function Sobre() {
+function About() {
 	return (
 		<main>
 			<div className="w-full">
@@ -108,4 +108,4 @@ function Sobre() {
 	);
 }
 
-export default Sobre;
+export default About;
