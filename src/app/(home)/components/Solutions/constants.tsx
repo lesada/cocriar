@@ -6,26 +6,26 @@ export const solutions: TSolutionsSection[] = [
 		name: "Para você",
 		items: [
 			{
-				icon: "rocket",
+				icon: "material-symbols:rocket-launch-rounded",
 				title: "Desenvolvimento Pessoal",
 				content: "Desenvolvimento com Coaching Executivo Individual",
 				detach: false,
 			},
 			{
-				icon: "presentation",
+				icon: "material-symbols:co-present",
 				title: "Mentoria",
 				content: "Mentoria em Desenvolvimento Humano e Organizacional",
 				detach: true,
 			},
 			{
-				icon: "puzzle",
+				icon: "ph:puzzle-piece-fill",
 				title: "Assessment",
 				content:
 					"Assessment Tipos Psicológicos e Preferências de Personalidade MBTI Step I e II",
 				detach: false,
 			},
 			{
-				icon: "backpack",
+				icon: "ph:backpack-fill",
 				title: "Trilha Profissional",
 				content: "Coaching para trilhas e papéis profissionais",
 				detach: false,
@@ -42,27 +42,27 @@ export const solutions: TSolutionsSection[] = [
 		},
 		items: [
 			{
-				icon: "briefcase",
+				icon: "ph:briefcase-metal-fill",
 				title: "Coaching Executivo",
 				content: "Individual e de Equipes de Líderes (C-Level)",
 				detach: false,
 			},
 			{
-				icon: "medal",
+				icon: "ph:medal-military-fill",
 				title: "Co-criando Organizações Saudáveis I e II ",
 				content:
 					"Programas autorais da Co-criar, com abordagens e técnicas fundamentadas para cultivo de engajamento, equilíbrio e bem-estar  para pessoas e negócios.",
 				detach: false,
 			},
 			{
-				icon: "trophy",
+				icon: "ph:trophy-fill",
 				title: "Desenvolvimento de Liderança",
 				content:
 					"Desenvolvimento através dos Níveis de Liderança. Programas cocriados e customizados para Desenvolvimento de Lideranças e Equipes",
 				detach: true,
 			},
 			{
-				icon: "users",
+				icon: "ph:users-three-fill",
 				title: "Assessment Comportamentais",
 				content:
 					" Assessment Estados Positivos no Trabalho,Tipos Psicológicos e Preferências de Personalidade MBTI Step I e II",

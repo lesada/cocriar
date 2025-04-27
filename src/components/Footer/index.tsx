@@ -45,7 +45,7 @@ function Footer() {
 				<div className="flex justify-center gap-8 mt-7">
 					{legalLinks.map((link) => (
 						<Link
-							key={link.href}
+							key={link.label}
 							href={link.href}
 							className="text-neutral-0 font-medium font-inter text-sm"
 						>
@@ -56,7 +56,7 @@ function Footer() {
 
 				<div className="flex justify-center gap-8 mt-7">
 					{socialMedia.map((social) => (
-						<Link key={social.href} href={social.href}>
+						<Link key={social.alt} href={social.href}>
 							<Image
 								src={social.src}
 								alt={social.alt}
