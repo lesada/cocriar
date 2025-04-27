@@ -17,7 +17,13 @@ function Article() {
 	return (
 		<main>
 			<div className="w-full">
-				<Image src={hero} alt="" width={1440} height={589} className="w-full" />
+				<Image
+					src={hero}
+					alt=""
+					width={1440}
+					height={589}
+					className="w-full h-[31.25rem]"
+				/>
 			</div>
 			<Section tag="Quem somos?">
 				<div className="flex flex-col gap-12">
