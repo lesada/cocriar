@@ -12,6 +12,7 @@ function ContactForm() {
 	const {
 		handleSubmit,
 		control,
+		reset,
 		formState: { errors, isValid },
 	} = useForm<TSchemaContactForm>({
 		mode: "onTouched",
@@ -24,8 +25,10 @@ function ContactForm() {
 		},
 	});
 
-	function submitContactForm(dados: TSchemaContactForm) {
-		console.log(dados);
+	function submitContactForm(data: TSchemaContactForm) {
+		console.log(data);
+
+		reset();
 	}
 
 	return (
