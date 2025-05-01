@@ -19,7 +19,7 @@ describe("home > components > Contact Form", () => {
 		expect(firstField).toBeVisible();
 	});
 
-	test("validation fields with error", async () => {
+	test("validate fields with error", async () => {
 		render(<ContactForm />);
 
 		const name = screen.getByRole("textbox", {
