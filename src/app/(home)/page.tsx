@@ -1,4 +1,5 @@
 import Articles from "./components/Articles";
+import ContactForm from "./components/ContactForm";
 import Events from "./components/Events";
 import HeroBanner from "./components/HeroBanner";
 import InfoBanner from "./components/InfoBanner";
@@ -16,6 +17,7 @@ export default function Home() {
 			<Events />
 			<ScheduleCard />
 			<Articles />
+			<ContactForm />
 		</main>
 	);
 }
