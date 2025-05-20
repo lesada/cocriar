@@ -56,8 +56,8 @@ function About() {
 				</div>
 			</Section>
 			<Section tag="Founder Co-criar" id="dono">
-				<div className="flex flex-wrap gap-10 shrink-0">
-					<div className="flex flex-col flex-1 gap-12 shrink-0 basis-md">
+				<div className="flex md:flex-row flex-col items-start gap-10">
+					<div className="flex flex-col flex-1 items-center gap-12 basis-md">
 						<div>
 							<h3 className="title">Sobre a Letiene Ferreira</h3>
 							<hr className="detach-hr" />
@@ -94,12 +94,13 @@ function About() {
 							</p>
 						</div>
 					</div>
-					<div className="flex flex-1 justify-center items-center w-fit shrink-0 basis-md">
+					<div className="flex flex-1 w-fit max-h-[36rem] basis-md">
 						<Image
 							src={owner}
 							alt="Letiene Ferreira"
 							width={466}
 							height={699}
+							className="object-contain"
 						/>
 					</div>
 				</div>
