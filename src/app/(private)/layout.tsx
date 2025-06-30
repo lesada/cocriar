@@ -1,4 +1,5 @@
 import Loader from "@/components/Loader";
+import Sidebar from "@/components/Sidebar";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
@@ -32,7 +33,12 @@ export default function RootLayout({
 				className={`${inter.variable} ${poppins.variable} ${poppins.className}`}
 			>
 				<Suspense fallback={<Loader />}>
-					<NuqsAdapter>{children}</NuqsAdapter>
+					<NuqsAdapter>
+						<div className="flex min-h-screen">
+							<Sidebar />
+							{children}
+						</div>
+					</NuqsAdapter>
 				</Suspense>
 			</body>
 		</html>

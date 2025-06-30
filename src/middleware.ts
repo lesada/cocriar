@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
 	const isAdminRoute = path.includes("/admin");
 
 	if (isAdminRoute) {
-		const isUserAdmin = false;
+		const isUserAdmin = true;
 
 		if (!isUserAdmin) {
 			return NextResponse.redirect(
