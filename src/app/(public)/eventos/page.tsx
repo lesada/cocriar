@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 import { useRouter } from "next/navigation";
 import { events } from "./constants";
 
-function Artigos() {
+function Events() {
 	const { push } = useRouter();
 
 	return (
@@ -55,4 +55,4 @@ function Artigos() {
 	);
 }
 
-export default Artigos;
+export default Events;

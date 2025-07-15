@@ -8,7 +8,7 @@ import { useQueryState } from "nuqs";
 import { twMerge } from "tailwind-merge";
 import { cards, categories } from "./constants";
 
-function Artigos() {
+function Articles() {
 	const [selectedCategory, setSelectedCategory] = useQueryState("category");
 	const { push } = useRouter();
 
@@ -95,4 +95,4 @@ function Artigos() {
 	);
 }
 
-export default Artigos;
+export default Articles;
