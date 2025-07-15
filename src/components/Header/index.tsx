@@ -47,7 +47,7 @@ function Header() {
 				onClick={toggleMenu}
 				type="button"
 			>
-				<Icon icon="material-symbols:menu-rounded" width={30} height={30} />
+				<Icon icon="material-symbols:menu-rounded" width={32} height={32} />
 			</button>
 
 			<div
