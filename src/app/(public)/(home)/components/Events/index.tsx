@@ -17,7 +17,14 @@ function Events() {
 			<h3 className="title">Próximos eventos</h3>
 			<div className="flex flex-wrap justify-center gap-8">
 				{events.slice(0, 3).map((event) => (
-					<Card {...event} key={event.slug} as="div">
+					<Card
+						image={event.image}
+						title={event.title}
+						subtitle={event.subtitle}
+						tag={event.tag}
+						key={event.slug}
+						as="div"
+					>
 						<Button
 							onClick={() =>
 								router.push(ROUTES_PATHS.EVENT.replace(":id", event.slug))
