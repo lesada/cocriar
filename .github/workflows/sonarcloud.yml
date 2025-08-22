@@ -30,6 +30,6 @@ jobs:
         run: pnpm coverage
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@d08d592c0b694607865c089cba90bbf87c9a6d89
+        uses: SonarSource/sonarcloud-github-action@e44258b109568baa0df60ed515909fc6c72cba92
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
