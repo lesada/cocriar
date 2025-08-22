@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/Button";
+import { ROUTES_PATHS } from "@/routes";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useRouter } from "next/navigation";
 
@@ -42,10 +43,13 @@ function AdminPanel() {
 					<h3 className="font-poppins font-medium text-neutral-900 text-2xl">
 						Ações rápidas
 					</h3>
-					<Button onClick={() => router.push("/admin/artigos")}>
+					<Button onClick={() => router.push(ROUTES_PATHS.ADMIN_ARTICLES)}>
 						Adicionar novo artigo
 					</Button>
-					<Button outlined onClick={() => router.push("/admin/eventos")}>
+					<Button
+						outlined
+						onClick={() => router.push(ROUTES_PATHS.ADMIN_EVENTS)}
+					>
 						Adicionar novo evento
 					</Button>
 				</div>

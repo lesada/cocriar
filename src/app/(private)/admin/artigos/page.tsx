@@ -2,6 +2,7 @@
 
 import Button from "@/components/Button";
 import Table from "@/components/Table";
+import { ROUTES_PATHS } from "@/routes";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useRouter } from "next/navigation";
 import { mockPosts } from "./mock";
@@ -16,7 +17,9 @@ function Articles() {
 			</h1>
 			<Button
 				className="mb-10"
-				onClick={() => router.push("/admin/artigos/novo")}
+				onClick={() =>
+					router.push(ROUTES_PATHS.ADMIN_ARTICLE.replace(":id", "novo"))
+				}
 			>
 				Adicionar novo artigo
 			</Button>
@@ -44,7 +47,7 @@ function Articles() {
 										</span>
 									);
 								})}
-							</Table.Cell>{" "}
+							</Table.Cell>
 							<Table.Cell>{post.publishedAt}</Table.Cell>
 							<Table.Actions>
 								<button

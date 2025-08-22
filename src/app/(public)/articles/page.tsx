@@ -2,6 +2,7 @@
 
 import Button from "@/components/Button";
 import Section from "@/components/Section";
+import { ROUTES_PATHS } from "@/routes";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import { useQueryState } from "nuqs";
@@ -27,7 +28,9 @@ function Articles() {
 									<button
 										className="flex md:flex-row flex-col gap-6 bg-neutral-0 shadow-xl p-4 rounded-lg text-left cursor-pointer"
 										key={card.slug}
-										onClick={() => push(`/artigos/${card.slug}`)}
+										onClick={() =>
+											push(ROUTES_PATHS.ARTICLE.replace(":id", card.slug))
+										}
 										type="button"
 									>
 										<div className="w-full max-w-80 h-full shrink-0">

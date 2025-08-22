@@ -2,6 +2,7 @@
 
 import Button from "@/components/Button";
 import Table from "@/components/Table";
+import { ROUTES_PATHS } from "@/routes";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useRouter } from "next/navigation";
 import { mockEvents } from "./mock";
@@ -16,7 +17,9 @@ function Events() {
 			</h1>
 			<Button
 				className="mb-10"
-				onClick={() => router.push("/admin/eventos/novo")}
+				onClick={() =>
+					router.push(ROUTES_PATHS.ADMIN_EVENT.replace(":id", "novo"))
+				}
 			>
 				Adicionar novo evento
 			</Button>

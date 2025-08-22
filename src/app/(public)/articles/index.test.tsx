@@ -1,11 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import { withNuqsTestingAdapter } from "nuqs/adapters/testing";
 import { describe, expect, test } from "vitest";
-import Artigos from "./page";
+import Articles from "./page";
 
-describe("artigos", () => {
+describe("articles", () => {
 	test("render all articles", async () => {
-		render(<Artigos />, {
+		render(<Articles />, {
 			wrapper: withNuqsTestingAdapter({ searchParams: "" }),
 		});
 
@@ -14,7 +14,7 @@ describe("artigos", () => {
 	});
 
 	test("render only articles", async () => {
-		render(<Artigos />, {
+		render(<Articles />, {
 			wrapper: withNuqsTestingAdapter({
 				searchParams: {
 					category: "Tecnologia",

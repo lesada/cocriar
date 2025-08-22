@@ -2,6 +2,7 @@
 
 import Button from "@/components/Button";
 import Section from "@/components/Section";
+import { ROUTES_PATHS } from "@/routes";
 import { useRouter } from "next/navigation";
 import { events } from "./constants";
 
@@ -37,7 +38,9 @@ function Events() {
 										{event.text}
 									</p>
 									<Button
-										onClick={() => push(`/artigos/${event.slug}`)}
+										onClick={() =>
+											push(ROUTES_PATHS.EVENT.replace(":id", event.slug))
+										}
 										type="button"
 										variant="secondary"
 										outlined
