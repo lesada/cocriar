@@ -1,6 +1,4 @@
-import type { TCard } from "@/components/Card/types";
-
-export const articles: TCard[] = [
+export const articles = [
 	{
 		image: "https://placehold.co/600x400",
 		title: "5 Conteúdos que você precisa ler em 2023",

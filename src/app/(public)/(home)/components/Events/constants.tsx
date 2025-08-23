@@ -1,6 +1,4 @@
-import type { TCard } from "@/components/Card/types";
-
-export const events: TCard[] = [
+export const events = [
 	{
 		image: "https://placehold.co/600x400",
 		title: "Co-criar Desenvolvimento",

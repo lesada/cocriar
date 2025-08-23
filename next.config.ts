@@ -1,7 +1,10 @@
+import { routes } from "@/routes";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+	async rewrites() {
+		return routes;
+	},
 };
 
 export default nextConfig;

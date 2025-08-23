@@ -2,6 +2,7 @@
 
 import Card from "@/components/Card";
 import Section from "@/components/Section";
+import { ROUTES_PATHS } from "@/routes";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -15,12 +16,11 @@ function Articles() {
 			<div className="flex flex-wrap justify-center gap-8">
 				{articles.slice(0, 3).map((article) => (
 					<Card
-						image={article.image}
-						subtitle={article.subtitle}
-						tag={article.tag}
-						title={article.title}
+						{...article}
 						key={article.slug}
-						onClick={() => router.push(`artigos/${article.slug}`)}
+						onClick={() =>
+							router.push(ROUTES_PATHS.ARTICLE.replace(":id", article.slug))
+						}
 						className="cursor-pointer"
 					/>
 				))}
