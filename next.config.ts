@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
 	async rewrites() {
 		return routes;
 	},
+	transpilePackages: ["msw"],
 };
 
 export default nextConfig;

@@ -1,9 +1,11 @@
-import { setupWorker } from "msw/browser";
-import { env } from "node:process";
-
-export const worker = setupWorker();
-
-export async function enableMSW() {
-	if (env.MODE !== "test") return;
-	await worker.start();
+async function initMocks() {
+	if (typeof window === "undefined") {
+		const { server } = await import("./server");
+		server.listen();
+	} else {
+		const { worker } = await import("./browser");
+		worker.start();
+	}
 }
+
+export { initMocks };
