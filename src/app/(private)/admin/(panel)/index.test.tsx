@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { renderWithClient } from "@/_tests/utils";
+import { fireEvent, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 import AdminPanel from "./page";
 
@@ -16,19 +17,19 @@ describe("admin panel", () => {
 	});
 
 	test("render admin panel", () => {
-		render(<AdminPanel />);
+		renderWithClient(<AdminPanel />);
 		expect(screen.getByText("Painel de Controle")).toBeInTheDocument();
 	});
 
 	test("redirect to articles", () => {
-		render(<AdminPanel />);
+		renderWithClient(<AdminPanel />);
 		const button = screen.getByText("Adicionar novo artigo");
 		fireEvent.click(button);
 		expect(mockPush).toHaveBeenCalledWith("/admin/artigos");
 	});
 
 	test("redirect to events", () => {
-		render(<AdminPanel />);
+		renderWithClient(<AdminPanel />);
 		const button = screen.getByText("Adicionar novo evento");
 		fireEvent.click(button);
 		expect(mockPush).toHaveBeenCalledWith("/admin/eventos");
