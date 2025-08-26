@@ -1,12 +1,19 @@
 "use client";
 
+import { getSummary } from "@/api/summary/get-summary";
 import Button from "@/components/Button";
+import ShimmerSkeleton from "@/components/ShimmerSkeleton";
 import { ROUTES_PATHS } from "@/routes";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
 function AdminPanel() {
 	const router = useRouter();
+	const { data: summary, isSuccess } = useQuery({
+		queryKey: ["summary"],
+		queryFn: getSummary,
+	});
 
 	return (
 		<main className="flex flex-col flex-1 bg-blue-50 px-6 py-36 min-h-screen">
@@ -18,26 +25,40 @@ function AdminPanel() {
 					<h2 className="font-poppins font-medium text-neutral-900 text-3xl">
 						Informações
 					</h2>
-					<p className="flex items-center gap-1 font-medium text-blue-800">
-						<Icon icon="hugeicons:google-doc" width={20} height={20} /> 5
-						artigos
-					</p>
-					<p className="flex items-center gap-1 font-medium text-blue-800">
-						<Icon
-							icon="material-symbols:mode-comment-outline"
-							width={20}
-							height={20}
-						/>
-						3 depoimentos
-					</p>
-					<p className="flex items-center gap-1 font-medium text-blue-800">
-						<Icon
-							icon="material-symbols:event-outline"
-							width={20}
-							height={20}
-						/>
-						2 eventos
-					</p>
+					<ShimmerSkeleton className="w-24 h-5" show={isSuccess}>
+						<p className="flex items-center gap-1 font-medium text-blue-800">
+							<Icon
+								icon="hugeicons:google-doc"
+								width={20}
+								height={20}
+								className="shrink-0"
+							/>
+							{summary?.articles} artigos
+						</p>
+					</ShimmerSkeleton>
+
+					<ShimmerSkeleton show={isSuccess} className="w-32 h-5">
+						<p className="flex items-center gap-1 font-medium text-blue-800">
+							<Icon
+								icon="material-symbols:mode-comment-outline"
+								width={20}
+								height={20}
+								className="shrink-0"
+							/>
+							{summary?.testimonials} comentários
+						</p>
+					</ShimmerSkeleton>
+					<ShimmerSkeleton show={isSuccess} className="w-32 h-5">
+						<p className="flex items-center gap-1 font-medium text-blue-800">
+							<Icon
+								icon="material-symbols:event-outline"
+								width={20}
+								height={20}
+								className="shrink-0"
+							/>
+							{summary?.events} eventos
+						</p>
+					</ShimmerSkeleton>
 				</div>
 				<div className="flex flex-col gap-4">
 					<h3 className="font-poppins font-medium text-neutral-900 text-2xl">

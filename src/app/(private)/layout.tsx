@@ -1,10 +1,7 @@
-import Loader from "@/components/Loader";
 import Sidebar from "@/components/Sidebar";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
-import { NuqsAdapter } from "nuqs/adapters/next/app";
-import { Suspense } from "react";
 
 export const metadata: Metadata = {
 	title: "Co-criar",
@@ -28,19 +25,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="pt-BR">
-			<body
-				className={`${inter.variable} ${poppins.variable} ${poppins.className}`}
-			>
-				<Suspense fallback={<Loader />}>
-					<NuqsAdapter>
-						<div className="flex min-h-screen">
-							<Sidebar />
-							{children}
-						</div>
-					</NuqsAdapter>
-				</Suspense>
-			</body>
-		</html>
+		<div className="flex min-h-screen">
+			<Sidebar />
+			{children}
+		</div>
 	);
 }
