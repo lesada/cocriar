@@ -1,12 +1,15 @@
 "use client";
 
+import { deleteArticle } from "@/api/requests/articles/delete-article";
 import { getArticles } from "@/api/requests/articles/get-articles";
+import type { GetArticlesResponse } from "@/api/requests/articles/types";
 import Button from "@/components/Button";
 import ShimmerSkeleton from "@/components/ShimmerSkeleton";
 import Table from "@/components/Table";
+import { queryClient } from "@/contexts/query-client";
 import { ROUTES_PATHS } from "@/routes";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 
 function ArticleSkeleton() {
@@ -33,6 +36,21 @@ function Articles() {
 	const { data, isSuccess } = useQuery({
 		queryKey: ["articles"],
 		queryFn: getArticles,
+	});
+
+	const { mutateAsync: handleDeleteArticle } = useMutation({
+		mutationFn: (id: string) => deleteArticle(id).then(() => id),
+		onSuccess: (deletedId: string) => {
+			queryClient.setQueryData(
+				["articles"],
+				(oldData: GetArticlesResponse) => ({
+					...oldData,
+					articles: oldData.articles.filter(
+						(article) => article.id !== deletedId,
+					),
+				}),
+			);
+		},
 	});
 
 	return (
@@ -79,6 +97,7 @@ function Articles() {
 								<button
 									className="text-neutral-600 hover:text-neutral-800 cursor-pointer"
 									type="button"
+									onClick={() => handleDeleteArticle(article.id)}
 								>
 									<Icon icon="mdi:delete" width="16" height="16" />
 								</button>
