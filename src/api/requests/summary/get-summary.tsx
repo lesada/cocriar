@@ -1,5 +1,5 @@
-import { api } from "..";
-import { API_ROUTES } from "../routes";
+import { api } from "../..";
+import { API_ROUTES } from "../../routes";
 import type { SummaryResponse } from "./types";
 
 export async function getSummary() {

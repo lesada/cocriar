@@ -1,5 +1,5 @@
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
-import { server } from "../mocks/server";
+import { server } from "../../mocks/server";
 import { getSummary } from "./get-summary";
 import { summaryMock } from "./mock";
 

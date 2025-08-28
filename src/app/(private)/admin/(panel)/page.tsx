@@ -1,6 +1,6 @@
 "use client";
 
-import { getSummary } from "@/api/summary/get-summary";
+import { getSummary } from "@/api/requests/summary/get-summary";
 import Button from "@/components/Button";
 import ShimmerSkeleton from "@/components/ShimmerSkeleton";
 import { ROUTES_PATHS } from "@/routes";
