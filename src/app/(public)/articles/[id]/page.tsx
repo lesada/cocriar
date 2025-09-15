@@ -10,9 +10,9 @@ import { useParams } from "next/navigation";
 import { cards } from "../constants";
 
 function Article() {
-	const { slug } = useParams();
+	const { id } = useParams();
 
-	const article = cards.find((card) => card.slug === slug);
+	const article = cards.find((card) => card.slug === id);
 
 	return (
 		<main>

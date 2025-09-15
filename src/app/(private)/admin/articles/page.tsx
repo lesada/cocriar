@@ -53,6 +53,10 @@ function Articles() {
 		},
 	});
 
+	function handleEditArticle(id: string) {
+		router.push(ROUTES_PATHS.ADMIN_ARTICLE.replace(":id", id));
+	}
+
 	return (
 		<main className="flex flex-col flex-1 bg-blue-50 px-6 py-36 min-h-screen">
 			<h1 className="mb-12 font-poppins font-medium text-neutral-900 text-5xl">
@@ -91,6 +95,7 @@ function Articles() {
 								<button
 									className="text-neutral-600 hover:text-neutral-800 cursor-pointer"
 									type="button"
+									onClick={() => handleEditArticle(article.id)}
 								>
 									<Icon icon="mdi:pencil" width="16" height="16" />
 								</button>

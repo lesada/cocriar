@@ -1,15 +1,15 @@
 export enum ROUTES_PATHS {
 	ARTICLES = "/artigos",
-	ARTICLE = "/artigo/:id",
+	ARTICLE = "/artigos/:id",
 	EVENTS = "/eventos",
-	EVENT = "/evento/:id",
+	EVENT = "/eventos/:id",
 	ABOUT = "/sobre",
 
 	ADMIN_PANEL = "/admin/painel",
 	ADMIN_ARTICLES = "/admin/artigos",
-	ADMIN_ARTICLE = "/admin/artigo/:id",
+	ADMIN_ARTICLE = "/admin/artigos/:id",
 	ADMIN_EVENTS = "/admin/eventos",
-	ADMIN_EVENT = "/admin/evento/:id",
+	ADMIN_EVENT = "/admin/eventos/:id",
 }
 
 export const routes = [
@@ -26,11 +26,11 @@ export const routes = [
 		source: ROUTES_PATHS.ABOUT,
 	},
 	{
-		destination: "/article/:id",
+		destination: "/articles/:id",
 		source: ROUTES_PATHS.ARTICLE,
 	},
 	{
-		destination: "/event/:id",
+		destination: "/events/:id",
 		source: ROUTES_PATHS.EVENT,
 	},
 	{
@@ -46,11 +46,11 @@ export const routes = [
 		source: ROUTES_PATHS.ADMIN_EVENTS,
 	},
 	{
-		destination: "/admin/article/:id",
+		destination: "/admin/articles/:id",
 		source: ROUTES_PATHS.ADMIN_ARTICLE,
 	},
 	{
-		destination: "/admin/event/:id",
+		destination: "/admin/events/:id",
 		source: ROUTES_PATHS.ADMIN_EVENT,
 	},
 ];
