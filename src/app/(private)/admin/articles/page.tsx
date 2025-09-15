@@ -82,7 +82,7 @@ function Articles() {
 							<ArticleSkeleton />
 						</>
 					)}
-					{data?.articles.map((article) => (
+					{data?.articles?.map((article) => (
 						<Table.Row key={article.id}>
 							<Table.Cell>{article.title}</Table.Cell>
 							<Table.Cell>{article.category}</Table.Cell>
