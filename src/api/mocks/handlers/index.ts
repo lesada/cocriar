@@ -1,4 +1,4 @@
-import { summaryMock } from "@/api/summary/mock";
+import { summaryMock } from "@/api/requests/summary/mock";
 import { http, HttpResponse } from "msw";
 
 export const handlers = [

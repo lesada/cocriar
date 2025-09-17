@@ -1,5 +1,6 @@
+import { renderWithClient } from "@/_tests/utils";
 import { ROUTES_PATHS } from "@/routes";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 import Articles from "./page";
 
@@ -17,14 +18,16 @@ describe("admin articles", () => {
 	});
 
 	test("render admin articles", () => {
-		render(<Articles />);
+		renderWithClient(<Articles />);
 		expect(screen.getByText("Adicionar novo artigo")).toBeInTheDocument();
 	});
 
 	test("should navigate to new article page on button click", () => {
-		render(<Articles />);
+		renderWithClient(<Articles />);
 		const button = screen.getByText("Adicionar novo artigo");
 		button.click();
-		expect(mockPush).toHaveBeenCalledWith(ROUTES_PATHS.ADMIN_ARTICLE.replace(":id", "novo"));
+		expect(mockPush).toHaveBeenCalledWith(
+			ROUTES_PATHS.ADMIN_ARTICLE.replace(":id", "novo"),
+		);
 	});
 });
