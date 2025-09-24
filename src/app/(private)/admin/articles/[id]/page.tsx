@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "@/components/Button";
 import Input from "@/components/Input";
 import RichText from "@/components/RichText";
 import { Icon } from "@iconify/react/dist/iconify.js";
@@ -10,6 +11,7 @@ function Article() {
 		defaultValues: {
 			title: "",
 			content: "",
+			category: "",
 		},
 	});
 
@@ -17,7 +19,7 @@ function Article() {
 		<main className="flex flex-col flex-1 bg-blue-50 px-6 py-36 min-h-screen">
 			<h1 className="mb-8 font-medium text-3xl">Adicionar novo artigo</h1>
 
-			<form>
+			<form className="flex flex-col gap-4">
 				<Input
 					label="Título do artigo"
 					control={control}
@@ -38,8 +40,18 @@ function Article() {
 					/>
 					Adicionar mídia
 				</button>
+
+				<Input
+					label="Categoria"
+					control={control}
+					name="category"
+					variant="secondary"
+					placeholder=""
+				/>
+
 				<h2 className="mb-4 font-medium text-xl">Inserir conteúdo</h2>
 				<RichText />
+				<Button className="mt-4">Salvar</Button>
 			</form>
 		</main>
 	);
