@@ -7,15 +7,33 @@ import TextAlign from "@tiptap/extension-text-align";
 import Underline from "@tiptap/extension-underline";
 import { EditorContent, useEditor } from "@tiptap/react";
 
+import Link from "@tiptap/extension-link";
 import StarterKit from "@tiptap/starter-kit";
+
 import clsx from "clsx";
 import { useCallback, useEffect, useState } from "react";
+import EditLinkModal from "./edit-link-modal";
 
 function RichText() {
-	const [editorState, setEditorState] = useState(0);
+	const [_, setEditorState] = useState(0);
+	const [showLinkModal, setShowLinkModal] = useState(false);
+	const [linkValue, setLinkValue] = useState("");
 	const editor = useEditor({
 		extensions: [
 			StarterKit,
+			Link.configure({
+				openOnClick: false,
+				autolink: true,
+				defaultProtocol: "https",
+				protocols: ["http", "https"],
+				linkOnPaste: false,
+				HTMLAttributes: {
+					rel: "noopener noreferrer",
+					target: "_self",
+					style:
+						"pointer-events: none; text-decoration: underline; color: #2563eb;",
+				},
+			}),
 			Text,
 			Paragraph,
 			Underline,
@@ -40,20 +58,43 @@ function RichText() {
 
 	const setLink = useCallback(() => {
 		if (!editor) return;
-		const previousUrl = editor.getAttributes("link").href;
-		const url = window.prompt("URL", previousUrl);
-		if (url === null) return;
-		if (url === "") {
-			editor.chain().focus().extendMarkRange("link").unsetLink().run();
-			return;
-		}
-		editor.chain().focus().extendMarkRange("link").setLink({ href: url }).run();
+		const previousUrl = editor.getAttributes("link").href || "";
+		setLinkValue(previousUrl);
+		setShowLinkModal(true);
 	}, [editor]);
+
+	const handleLinkSave = () => {
+		if (!editor) return;
+		if (linkValue.trim() === "") {
+			editor.chain().focus().extendMarkRange("link").unsetLink().run();
+		} else {
+			editor
+				.chain()
+				.focus()
+				.extendMarkRange("link")
+				.setLink({ href: linkValue.trim() })
+				.run();
+		}
+		setShowLinkModal(false);
+	};
+
+	const handleLinkCancel = () => {
+		setShowLinkModal(false);
+		setLinkValue("");
+	};
 
 	if (!editor) return null;
 
 	return (
 		<>
+			{showLinkModal && (
+				<EditLinkModal
+					linkValue={linkValue}
+					setLinkValue={setLinkValue}
+					handleLinkSave={handleLinkSave}
+					handleLinkCancel={handleLinkCancel}
+				/>
+			)}
 			<div className="bg-white px-1 border border-gray-300 rounded-md">
 				<button
 					type="button"
@@ -98,7 +139,12 @@ function RichText() {
 					type="button"
 					onClick={setLink}
 					aria-pressed={editor.isActive("link")}
-					className="hover:bg-gray-100 p-4 cursor-pointer"
+					className={clsx(
+						"hover:bg-gray-100 my-1 p-4 rounded-sm cursor-pointer",
+						{
+							"bg-gray-200": editor.isActive("link"),
+						},
+					)}
 				>
 					<Icon icon="mdi:link-variant" width={20} height={20} />
 				</button>
