@@ -14,9 +14,4 @@ export const routes = [
 		label: "Eventos",
 		icon: "material-symbols:event-outline",
 	},
-	{
-		path: "/admin/configuracoes",
-		label: "Configurações",
-		icon: "bi:gear",
-	},
 ];
