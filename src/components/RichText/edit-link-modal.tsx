@@ -12,7 +12,10 @@ function EditLinkModal({
 	handleLinkCancel,
 }: EditLinkModalProps) {
 	return (
-		<div className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-30">
+		<div
+			className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-30"
+			data-testid="edit-link-modal"
+		>
 			<div className="flex flex-col gap-3 bg-white shadow-lg p-6 rounded-lg min-w-[320px]">
 				<h2 className="mb-2 font-semibold text-lg">Insira ou edite o link</h2>
 				<input

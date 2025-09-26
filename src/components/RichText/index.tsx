@@ -150,6 +150,7 @@ function RichText({ value, onChange }: RichTextProps) {
 							"bg-gray-200": editor.isActive("link"),
 						},
 					)}
+					data-testid="link-button"
 				>
 					<Icon icon="mdi:link-variant" width={20} height={20} />
 				</button>

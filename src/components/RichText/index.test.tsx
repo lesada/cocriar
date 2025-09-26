@@ -27,4 +27,17 @@ describe("RichText", () => {
 		const updatedContent = screen.getByText("Updated content");
 		expect(updatedContent).toBeInTheDocument();
 	});
+
+	it("should open modal edit link", async () => {
+		const initialValue = "<p>Initial content</p>";
+		const onChange = vi.fn();
+		render(<RichText value={initialValue} onChange={onChange} />);
+		const editorContent = screen.getByText("Initial content");
+		expect(editorContent).toBeInTheDocument();
+
+		const linkButton = screen.getByTestId("link-button");
+		linkButton.click();
+		const modal = await screen.findByTestId("edit-link-modal");
+		expect(modal).toBeInTheDocument();
+	});
 });
