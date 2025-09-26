@@ -14,10 +14,15 @@ import clsx from "clsx";
 import { useCallback, useEffect, useState } from "react";
 import EditLinkModal from "./edit-link-modal";
 
-function RichText() {
-	const [_, setEditorState] = useState(0);
+type RichTextProps = {
+	value: string;
+	onChange: (value: string) => void;
+};
+
+function RichText({ value, onChange }: RichTextProps) {
 	const [showLinkModal, setShowLinkModal] = useState(false);
 	const [linkValue, setLinkValue] = useState("");
+
 	const editor = useEditor({
 		extensions: [
 			StarterKit,
@@ -41,20 +46,20 @@ function RichText() {
 				types: ["paragraph"],
 			}),
 		],
-		content: "",
+		content: value,
+		onUpdate: ({ editor }) => {
+			const html = editor.getHTML();
+			onChange(html);
+		},
 		immediatelyRender: false,
 		editable: true,
-		onUpdate: () => setEditorState((s) => s + 1),
 	});
 
 	useEffect(() => {
-		if (!editor) return;
-		const update = () => setEditorState((s) => s + 1);
-		editor.on("transaction", update);
-		return () => {
-			editor.off("transaction", update);
-		};
-	}, [editor]);
+		if (editor && value !== editor.getHTML()) {
+			editor.commands.setContent(value);
+		}
+	}, [value, editor]);
 
 	const setLink = useCallback(() => {
 		if (!editor) return;

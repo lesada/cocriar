@@ -7,6 +7,10 @@ type Article = {
 	title: string;
 };
 
+export type GetArticleResponse = {
+	article: Article;
+};
+
 export type GetArticlesResponse = {
 	articles: Article[];
 };
