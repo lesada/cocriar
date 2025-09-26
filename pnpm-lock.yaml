@@ -74,9 +74,6 @@ importers:
       yup:
         specifier: ^1.6.1
         version: 1.6.1
-      zod:
-        specifier: ^4.1.0
-        version: 4.1.0
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -2420,9 +2417,6 @@ packages:
   yup@1.6.1:
     resolution: {integrity: sha512-JED8pB50qbA4FOkDol0bYF/p60qSEDQqBD0/qeIrUCG1KbPBIQ776fCUNb9ldbPcSTxA69g/47XTo4TqWiuXOA==}
 
-  zod@4.1.0:
-    resolution: {integrity: sha512-UWxluYj2IDX9MHRXTMbB/2eeWrAMmmMSESM+MfT9MQw8U1qo9q5ASW08anoJh6AJ7pkt099fLdNFmfI+4aChHg==}
-
 snapshots:
 
   '@adobe/css-tools@4.4.2': {}
@@ -4588,5 +4582,3 @@ snapshots:
       tiny-case: 1.0.3
       toposort: 2.0.2
       type-fest: 2.19.0
-
-  zod@4.1.0: {}
