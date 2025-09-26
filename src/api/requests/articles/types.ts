@@ -1,8 +1,7 @@
 type Article = {
 	category: string;
 	content: string;
-	created_at: string;
-	description: string;
+	created_at: Date;
 	id: string;
 	image_url: string;
 	title: string;
