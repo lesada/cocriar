@@ -1,4 +1,5 @@
 export enum API_ROUTES {
 	SUMMARY = "/summary",
 	ARTICLES = "/articles",
+	ARTICLE = "/articles/:id",
 }

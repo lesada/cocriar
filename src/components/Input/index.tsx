@@ -16,6 +16,7 @@ type TInputProps<T extends FieldValues> = {
 	control: Control<T>;
 	error?: string;
 	mask?: string;
+	variant?: "primary" | "secondary";
 };
 
 function Input<T extends FieldValues>({
@@ -26,10 +27,19 @@ function Input<T extends FieldValues>({
 	placeholder,
 	type = "text",
 	mask,
+	variant = "primary",
 }: TInputProps<T>) {
 	return (
 		<div className="flex flex-col gap-1 w-full">
-			<label htmlFor={name} className="font-inter text-white text-sm">
+			<label
+				htmlFor={name}
+				className={twMerge(
+					clsx(
+						"font-inter text-white text-sm",
+						variant === "secondary" && "text-neutral-800 text-lg font-medium",
+					),
+				)}
+			>
 				{label}
 			</label>
 
@@ -48,6 +58,8 @@ function Input<T extends FieldValues>({
 									clsx(
 										"bg-white/95 p-3 md:p-4 rounded-lg outline-1 outline-cyan-200 w-full min-h-28 text-neutral-400 placeholder:text-neutral-200 text-sm placeholder:text-sm",
 										error && "outline-red-600",
+										variant === "secondary" &&
+											"outline-transparent text-neutral-800",
 									),
 								)}
 							/>
@@ -63,6 +75,8 @@ function Input<T extends FieldValues>({
 									clsx(
 										"bg-white/95 p-3 md:p-4 rounded-lg outline-1 outline-cyan-200 w-full text-neutral-400 placeholder:text-neutral-200 text-sm placeholder:text-sm",
 										error && "outline-red-600",
+										variant === "secondary" &&
+											"outline-transparent text-neutral-800",
 									),
 								)}
 							/>

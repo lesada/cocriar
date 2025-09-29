@@ -8,6 +8,7 @@ import ShimmerSkeleton from "@/components/ShimmerSkeleton";
 import Table from "@/components/Table";
 import { queryClient } from "@/contexts/query-client";
 import { ROUTES_PATHS } from "@/routes";
+import { formatDate } from "@/utils/format-date";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
@@ -90,7 +91,7 @@ function Articles() {
 						<Table.Row key={article.id}>
 							<Table.Cell>{article.title}</Table.Cell>
 							<Table.Cell>{article.category}</Table.Cell>
-							<Table.Cell>{article.created_at}</Table.Cell>
+							<Table.Cell>{formatDate(article.created_at)}</Table.Cell>
 							<Table.Actions>
 								<button
 									className="text-neutral-600 hover:text-neutral-800 cursor-pointer"
