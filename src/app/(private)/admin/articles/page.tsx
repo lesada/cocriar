@@ -4,6 +4,7 @@ import { deleteArticle } from "@/api/requests/articles/delete-article";
 import { getArticles } from "@/api/requests/articles/get-articles";
 import type { GetArticlesResponse } from "@/api/requests/articles/types";
 import Button from "@/components/Button";
+import Modal from "@/components/Modal";
 import ShimmerSkeleton from "@/components/ShimmerSkeleton";
 import Table from "@/components/Table";
 import { queryClient } from "@/contexts/query-client";
@@ -12,6 +13,7 @@ import { formatDate } from "@/utils/format-date";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 function ArticleSkeleton() {
 	return (
@@ -33,6 +35,11 @@ function ArticleSkeleton() {
 }
 
 function Articles() {
+	const [isOpenConfirmModal, setIsOpenConfirmModal] = useState(false);
+	const [selectedArticleId, setSelectedArticleId] = useState<string | null>(
+		null,
+	);
+
 	const router = useRouter();
 	const { data, isSuccess } = useQuery({
 		queryKey: ["articles"],
@@ -51,8 +58,14 @@ function Articles() {
 					),
 				}),
 			);
+			setIsOpenConfirmModal(false);
 		},
 	});
+
+	function handleClickDeleteArticle(id: string) {
+		setIsOpenConfirmModal(true);
+		setSelectedArticleId(id);
+	}
 
 	function handleEditArticle(id: string) {
 		router.push(ROUTES_PATHS.ADMIN_ARTICLE.replace(":id", id));
@@ -103,7 +116,7 @@ function Articles() {
 								<button
 									className="text-neutral-600 hover:text-neutral-800 cursor-pointer"
 									type="button"
-									onClick={() => handleDeleteArticle(article.id)}
+									onClick={() => handleClickDeleteArticle(article.id)}
 								>
 									<Icon icon="mdi:delete" width="16" height="16" />
 								</button>
@@ -112,6 +125,15 @@ function Articles() {
 					))}
 				</Table.Body>
 			</Table.Container>
+			<Modal
+				isOpen={isOpenConfirmModal}
+				onCancel={() => {
+					setIsOpenConfirmModal(false);
+					setSelectedArticleId(null);
+				}}
+				onConfirm={() => handleDeleteArticle(selectedArticleId ?? "")}
+				title="Confirmar exclusão do artigo"
+			/>
 		</main>
 	);
 }
