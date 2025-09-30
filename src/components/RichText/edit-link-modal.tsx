@@ -12,7 +12,7 @@ function EditLinkModal({
 	setLinkValue,
 	handleLinkSave,
 	handleLinkCancel,
-}: EditLinkModalProps) {
+}: Readonly<EditLinkModalProps>) {
 	return (
 		<Modal
 			isOpen
