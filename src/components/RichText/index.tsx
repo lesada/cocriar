@@ -19,7 +19,7 @@ type RichTextProps = {
 	onChange: (value: string) => void;
 };
 
-function RichText({ value, onChange }: RichTextProps) {
+function RichText({ value, onChange }: Readonly<RichTextProps>) {
 	const [showLinkModal, setShowLinkModal] = useState(false);
 	const [linkValue, setLinkValue] = useState("");
 

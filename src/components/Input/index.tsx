@@ -28,7 +28,7 @@ function Input<T extends FieldValues>({
 	type = "text",
 	mask,
 	variant = "primary",
-}: TInputProps<T>) {
+}: Readonly<TInputProps<T>>) {
 	return (
 		<div className="flex flex-col gap-1 w-full">
 			<label

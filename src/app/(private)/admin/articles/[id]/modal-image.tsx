@@ -4,7 +4,11 @@ type ModalImageProps = {
 	onClose: () => void;
 };
 
-function ModalImage({ base64, deleteImage, onClose }: ModalImageProps) {
+function ModalImage({
+	base64,
+	deleteImage,
+	onClose,
+}: Readonly<ModalImageProps>) {
 	if (!base64) return null;
 
 	return (
