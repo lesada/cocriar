@@ -13,7 +13,7 @@ function Modal({
 	children,
 	onCancel,
 	...rest
-}: ModalProps) {
+}: Readonly<ModalProps>) {
 	if (!isOpen) return null;
 	return (
 		<div
