@@ -19,6 +19,7 @@ function EditLinkModal({
 			onConfirm={handleLinkSave}
 			onCancel={handleLinkCancel}
 			title="Insira ou edite o link"
+			data-testid="edit-link-modal"
 		>
 			<input
 				type="url"

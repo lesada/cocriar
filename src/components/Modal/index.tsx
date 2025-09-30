@@ -4,14 +4,22 @@ type ModalProps = {
 	onCancel: () => void;
 	title?: string;
 	children?: React.ReactNode;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
-function Modal({ isOpen, onConfirm, title, children, onCancel }: ModalProps) {
+function Modal({
+	isOpen,
+	onConfirm,
+	title,
+	children,
+	onCancel,
+	...rest
+}: ModalProps) {
 	if (!isOpen) return null;
 	return (
 		<div
 			className="z-50 fixed inset-0 flex justify-center items-center bg-black bg-opacity-30"
 			data-testid="modal"
+			{...rest}
 		>
 			<div className="flex flex-col gap-3 bg-white shadow-lg p-6 rounded-lg min-w-[320px]">
 				<h3 className="mb-2 font-semibold text-lg">{title}</h3>
