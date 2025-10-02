@@ -3,7 +3,7 @@ import { http, HttpResponse } from "msw";
 
 export const articlesMockHandler = [
 	http.get("/articles", () => {
-		return HttpResponse.json(articlesMock);
+		return HttpResponse.json(articlesMock, { status: 200 });
 	}),
 
 	http.get("/articles/:id", (req) => {

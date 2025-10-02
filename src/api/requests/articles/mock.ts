@@ -13,7 +13,6 @@ export const articlesMock = {
 			title: "Updated title",
 			image_url: "https://example.com/updated-image.png",
 			category: "health",
-			description: "Updated short desc",
 			content: "Updated full content",
 			created_at: "2025-06-17T15:14:19.141Z",
 		},
