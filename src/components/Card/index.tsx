@@ -1,4 +1,4 @@
-import DOMPurify from "dompurify";
+import DOMPurify from "isomorphic-dompurify";
 import type { ElementType } from "react";
 import ShimmerSkeleton from "../ShimmerSkeleton";
 import type { CardProps } from "./types";

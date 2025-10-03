@@ -1,5 +1,4 @@
 "use client";
-
 import { getArticleById } from "@/api/requests/articles/get-article-by-id";
 import { getArticles } from "@/api/requests/articles/get-articles";
 import Card from "@/components/Card";
@@ -7,6 +6,7 @@ import Section from "@/components/Section";
 import { ROUTES_PATHS } from "@/routes";
 import { Icon } from "@iconify/react";
 import { useQuery } from "@tanstack/react-query";
+import DOMPurify from "dompurify";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
@@ -28,6 +28,7 @@ function Article() {
 
 	const article = data?.article;
 	const cards = allArticles?.articles || [];
+	const clean = DOMPurify.sanitize(article?.content ?? "");
 
 	return (
 		<main>
@@ -51,11 +52,10 @@ function Article() {
 					<h2 className="font-poppins font-semibold text-2xl leading-relaxed">
 						{article?.title}
 					</h2>
-					<div className="flex flex-col gap-8">
-						<p className="font-inter text-neutral-700 text-lg">
-							{article?.content}
-						</p>
-					</div>
+					<div
+						className="flex flex-col gap-8 font-inter text-neutral-700 text-lg"
+						dangerouslySetInnerHTML={{ __html: clean }}
+					/>
 				</div>
 			</Section>
 			<Section tag="postados recentemente">
