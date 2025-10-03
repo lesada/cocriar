@@ -19,7 +19,7 @@ const Table = {
 		<tr className="even:bg-gray-50 odd:bg-white">{children}</tr>
 	),
 
-	Cell: ({ children }: { children: React.ReactNode; className?: string }) => (
+	Cell: ({ children }: { children: React.ReactNode }) => (
 		<td className={"px-4 py-3 whitespace-nowrap"}>{children}</td>
 	),
 
