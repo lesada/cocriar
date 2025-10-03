@@ -1,26 +1,38 @@
 "use client";
 
+import { getArticles } from "@/api/requests/articles/get-articles";
 import Card from "@/components/Card";
 import Section from "@/components/Section";
 import { ROUTES_PATHS } from "@/routes";
 import { Icon } from "@iconify/react";
+import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { articles } from "./constants";
 
 function Articles() {
 	const router = useRouter();
 
+	const { data, isFetching } = useQuery({
+		queryKey: ["articles", 3],
+		queryFn: () => getArticles(),
+	});
+
+	const cards = data?.articles || [];
+
 	return (
 		<Section tag="Blog Co-criar">
 			<div className="flex flex-wrap justify-center gap-8">
-				{articles.slice(0, 3).map((article) => (
+				{cards.slice(0, 3).map((card) => (
 					<Card
-						{...article}
-						key={article.slug}
+						title={card.title}
+						image={card.image_url}
+						tag={card.category}
+						subtitle={`${card.content.slice(0, 200)}...`}
+						key={card.id}
 						onClick={() =>
-							router.push(ROUTES_PATHS.ARTICLE.replace(":id", article.slug))
+							router.push(ROUTES_PATHS.ARTICLE.replace(":id", card.id))
 						}
+						loading={isFetching}
 						className="cursor-pointer"
 					/>
 				))}
