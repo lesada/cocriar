@@ -1,17 +1,19 @@
-import type { ComponentPropsWithoutRef, ElementType } from "react";
+import DOMPurify from "dompurify";
+import type { ElementType } from "react";
 import ShimmerSkeleton from "../ShimmerSkeleton";
-import type { TCard } from "./types";
+import type { CardProps } from "./types";
 
-export type CardProps<T extends ElementType> = {
-	as?: T;
-	loading?: boolean;
-} & ComponentPropsWithoutRef<T> &
-	TCard;
+function getDescription(html: string, maxLength = 100) {
+	const clean = DOMPurify.sanitize(html);
+	const doc = new DOMParser().parseFromString(clean, "text/html");
+	const text = doc.body.textContent || "";
+	return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+}
 
 function Card<T extends ElementType = "button">({
 	as,
 	image,
-	subtitle,
+	content,
 	tag,
 	title,
 	children,
@@ -21,10 +23,12 @@ function Card<T extends ElementType = "button">({
 }: CardProps<T>) {
 	const Component = as ?? "button";
 
+	const description = getDescription(content);
+
 	if (loading) {
 		return (
 			<div
-				className={`bg-neutral-0 shadow-lg p-4 flex flex-col gap-4 shrink-0 w-80 rounded text-left ${className}`}
+				className={`bg-neutral-0 shadow-lg p-4 flex flex-col gap-4 shrink-0 w-80 rounded text-left  ${className}`}
 			>
 				<div className="w-full h-48">
 					<ShimmerSkeleton className="w-full h-full object-cover" />
@@ -37,9 +41,11 @@ function Card<T extends ElementType = "button">({
 		);
 	}
 
+	const clean = DOMPurify.sanitize(description);
+
 	return (
 		<Component
-			className={`bg-neutral-0 shadow-lg p-4 flex flex-col gap-4 shrink-0 w-80 rounded text-left ${className}`}
+			className={`bg-neutral-0 shadow-lg p-4 flex flex-col gap-4 shrink-0 w-80 rounded text-left cursor-pointer ${className}`}
 			{...rest}
 		>
 			{image && (
@@ -51,9 +57,10 @@ function Card<T extends ElementType = "button">({
 			<h4 className="font-poppins font-semibold text-neutral-800 text-xl">
 				{title}
 			</h4>
-			<p className="font-inter text-neutral-700 text-lg text-ellipsis line-clamp-3 leading-relaxed">
-				{subtitle}
-			</p>
+			<div
+				className="font-inter text-neutral-700 text-lg text-ellipsis line-clamp-3 leading-relaxed"
+				dangerouslySetInnerHTML={{ __html: clean }}
+			/>
 			{children}
 		</Component>
 	);

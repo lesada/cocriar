@@ -14,7 +14,7 @@ function Articles() {
 
 	const { data, isFetching } = useQuery({
 		queryKey: ["articles", 3],
-		queryFn: () => getArticles(),
+		queryFn: () => getArticles({ limit: 3 }),
 	});
 
 	const cards = data?.articles || [];
@@ -22,18 +22,17 @@ function Articles() {
 	return (
 		<Section tag="Blog Co-criar">
 			<div className="flex flex-wrap justify-center gap-8">
-				{cards.slice(0, 3).map((card) => (
+				{cards.map((card) => (
 					<Card
 						title={card.title}
 						image={card.image_url}
 						tag={card.category}
-						subtitle={`${card.content.slice(0, 200)}...`}
+						content={`${card.content.slice(0, 200)}...`}
 						key={card.id}
 						onClick={() =>
 							router.push(ROUTES_PATHS.ARTICLE.replace(":id", card.id))
 						}
 						loading={isFetching}
-						className="cursor-pointer"
 					/>
 				))}
 			</div>
