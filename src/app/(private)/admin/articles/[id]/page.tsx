@@ -77,7 +77,6 @@ function Article() {
 	};
 
 	async function handleSave(data: ArticleFormData) {
-		console.log("oi");
 		if (isNewArticle)
 			await createArticle({
 				...data,

@@ -37,8 +37,6 @@ function Articles() {
 		queryFn: () => getArticles({ category: selectedCategory, limit }),
 	});
 
-	console.log("data", data);
-
 	const cards = data?.articles || [];
 	const categoryList = Array.from(new Set(cards.map((card) => card.category)));
 
