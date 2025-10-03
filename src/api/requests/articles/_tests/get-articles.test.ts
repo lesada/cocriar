@@ -17,7 +17,12 @@ describe("getArticles", () => {
 		const mockResponse = { data: [{ id: "1", title: "Article 1" }] };
 		(api.get as Mock).mockResolvedValueOnce(mockResponse);
 		const result = await getArticles();
-		expect(api.get).toHaveBeenCalledWith("/articles");
+		expect(api.get).toHaveBeenCalledWith("/articles", {
+			params: {
+				category: undefined,
+				limit: undefined,
+			},
+		});
 		expect(result).toEqual(mockResponse.data);
 	});
 

@@ -43,7 +43,7 @@ function Articles() {
 	const router = useRouter();
 	const { data, isSuccess } = useQuery({
 		queryKey: ["articles"],
-		queryFn: getArticles,
+		queryFn: () => getArticles(),
 	});
 
 	const { mutateAsync: handleDeleteArticle } = useMutation({

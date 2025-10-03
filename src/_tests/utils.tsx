@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render } from "@testing-library/react";
+import { NuqsTestingAdapter } from "nuqs/adapters/testing";
 
 const createTestQueryClient = () =>
 	new QueryClient({
@@ -10,19 +11,32 @@ const createTestQueryClient = () =>
 		},
 	});
 
-export function renderWithClient(ui: React.ReactElement) {
+export function renderWithClient(
+	ui: React.ReactElement,
+	searchParams?: string | Record<string, string> | URLSearchParams | undefined,
+) {
 	const testQueryClient = createTestQueryClient();
-	const { rerender, ...result } = render(
-		<QueryClientProvider client={testQueryClient}>{ui}</QueryClientProvider>,
-	);
+	const Wrapper = ({ children }: { children: React.ReactNode }) => {
+		if (searchParams) {
+			return (
+				<QueryClientProvider client={testQueryClient}>
+					<NuqsTestingAdapter searchParams={searchParams}>
+						{children}
+					</NuqsTestingAdapter>
+				</QueryClientProvider>
+			);
+		}
+		return (
+			<QueryClientProvider client={testQueryClient}>
+				{children}
+			</QueryClientProvider>
+		);
+	};
+
+	const { rerender, ...result } = render(ui, { wrapper: Wrapper });
 	return {
 		...result,
-		rerender: (rerenderUi: React.ReactElement) =>
-			rerender(
-				<QueryClientProvider client={testQueryClient}>
-					{rerenderUi}
-				</QueryClientProvider>,
-			),
+		rerender: (rerenderUi: React.ReactElement) => rerender(rerenderUi),
 	};
 }
 

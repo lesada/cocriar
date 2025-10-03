@@ -1,33 +1,30 @@
-import { render, screen } from "@testing-library/react";
-import { withNuqsTestingAdapter } from "nuqs/adapters/testing";
-import { describe, expect, test } from "vitest";
+import { renderWithClient } from "@/_tests/utils";
+import { server } from "@/api/mocks/server";
+import { screen } from "@testing-library/react";
+import { afterAll, beforeAll, describe, expect, test } from "vitest";
 import Articles from "./page";
 
 describe("articles", () => {
-	test("render all articles", async () => {
-		render(<Articles />, {
-			wrapper: withNuqsTestingAdapter({ searchParams: "" }),
-		});
+	beforeAll(() => {
+		server.listen();
+	});
 
-		const titleCard = screen.getByText("Cybersegurança em 2023: Desafios");
-		expect(titleCard).toBeVisible();
+	afterAll(() => server.close());
+
+	test("render all articles", async () => {
+		renderWithClient(<Articles />, new URLSearchParams({ category: "" }));
+
+		const titleCard = await screen.findAllByText("Article title");
+		expect(titleCard[0]).toBeVisible();
 	});
 
 	test("render only articles", async () => {
-		render(<Articles />, {
-			wrapper: withNuqsTestingAdapter({
-				searchParams: {
-					category: "Tecnologia",
-				},
-			}),
-		});
+		const search = new URLSearchParams({ category: "health" });
+		renderWithClient(<Articles />, search);
+		const titleCard = await screen.findAllByText("Updated title");
+		expect(titleCard[0]).toBeVisible();
 
-		const titleCard = screen.getByText("Cybersegurança em 2023: Desafios");
-		expect(titleCard).toBeVisible();
-
-		const titleOtherCard = screen.queryByText(
-			"5 Conteúdos que você precisa ler em 2023",
-		);
+		const titleOtherCard = screen.queryByText("Article title");
 
 		expect(titleOtherCard).toBeNull();
 	});
