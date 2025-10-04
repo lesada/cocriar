@@ -6,10 +6,10 @@ import Section from "@/components/Section";
 import { ROUTES_PATHS } from "@/routes";
 import { Icon } from "@iconify/react";
 import { useQuery } from "@tanstack/react-query";
-import DOMPurify from "dompurify";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
+
 
 function Article() {
 	const router = useRouter();
@@ -28,7 +28,7 @@ function Article() {
 
 	const article = data?.article;
 	const cards = allArticles?.articles || [];
-	const clean = DOMPurify.sanitize(article?.content ?? "");
+	const clean = article?.content;
 
 	return (
 		<main>
@@ -54,7 +54,7 @@ function Article() {
 					</h2>
 					<div
 						className="flex flex-col gap-8 font-inter text-neutral-700 text-lg"
-						dangerouslySetInnerHTML={{ __html: clean }}
+						dangerouslySetInnerHTML={{ __html: isFetching ? "Carregando..." : clean || "" }}
 					/>
 				</div>
 			</Section>

@@ -1,12 +1,14 @@
-import DOMPurify from "isomorphic-dompurify";
+"use client";
+
 import type { ElementType } from "react";
 import ShimmerSkeleton from "../ShimmerSkeleton";
 import type { CardProps } from "./types";
 
-function getDescription(html: string, maxLength = 100) {
-	const clean = DOMPurify.sanitize(html);
-	const doc = new DOMParser().parseFromString(clean, "text/html");
-	const text = doc.body.textContent || "";
+import { convert } from "html-to-text";
+
+export function getDescription(html: string, maxLength = 100) {
+	const text = convert(html, { wordwrap: false });
+
 	return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
 }
 
@@ -41,7 +43,7 @@ function Card<T extends ElementType = "button">({
 		);
 	}
 
-	const clean = DOMPurify.sanitize(description);
+	const clean = description;
 
 	return (
 		<Component
