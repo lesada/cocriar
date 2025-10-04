@@ -41,7 +41,7 @@ function Articles() {
 	const categoryList = Array.from(new Set(cards.map((card) => card.category)));
 
 	return (
-		<main>
+		<main className="flex flex-col flex-1">
 			<Section>
 				<h1 className="mb-6 text-center title">Blog</h1>
 				<div className="flex lg:flex-row flex-col gap-12">
