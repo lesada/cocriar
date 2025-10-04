@@ -14,16 +14,14 @@ import { twMerge } from "tailwind-merge";
 
 function FetchingArticle() {
 	return (
-		<>
-			<div className="flex md:flex-row flex-col gap-6 bg-neutral-0 shadow-xl p-4 rounded-lg text-left cursor-pointer">
-				<ShimmerSkeleton className="rounded-lg w-full max-w-80 h-full shrink-0" />
-				<div className="flex flex-col gap-4 w-full">
-					<ShimmerSkeleton className="rounded-lg w-full h-6" />
-					<ShimmerSkeleton className="rounded-lg w-full h-8" />
-					<ShimmerSkeleton className="rounded-lg w-full h-16" />
-				</div>
+		<div className="flex md:flex-row flex-col gap-6 bg-neutral-0 shadow-xl p-4 rounded-lg text-left cursor-pointer">
+			<ShimmerSkeleton className="rounded-lg w-full max-w-80 h-full shrink-0" />
+			<div className="flex flex-col gap-4 w-full">
+				<ShimmerSkeleton className="rounded-lg w-full h-6" />
+				<ShimmerSkeleton className="rounded-lg w-full h-8" />
+				<ShimmerSkeleton className="rounded-lg w-full h-16" />
 			</div>
-		</>
+		</div>
 	);
 }
 
