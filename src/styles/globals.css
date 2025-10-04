@@ -8,6 +8,12 @@
 		scroll-padding-top: 8rem;
 	}
 
+	body {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
 	::selection {
 		background-color: var(--color-cyan-700);
 		color: var(--color-neutral-50);
