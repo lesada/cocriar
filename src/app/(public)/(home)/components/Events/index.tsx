@@ -20,7 +20,7 @@ function Events() {
 					<Card
 						image={event.image}
 						title={event.title}
-						subtitle={event.subtitle}
+						content={event.subtitle}
 						tag={event.tag}
 						key={event.slug}
 						as="div"

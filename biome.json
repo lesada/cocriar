@@ -1,14 +1,20 @@
 {
 	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab",
 		"lineEnding": "crlf"
 	},
+
 	"linter": {
 		"enabled": true,
-		"rules": { "recommended": true }
+		"rules": {
+			"recommended": true,
+			"security": { "noDangerouslySetInnerHtml": "warn" }
+		}
 	},
+
 	"organizeImports": {
 		"enabled": true
 	},
@@ -21,6 +27,7 @@
 			"semicolons": "always"
 		}
 	},
+
 	"json": {
 		"formatter": {
 			"trailingCommas": "none"
