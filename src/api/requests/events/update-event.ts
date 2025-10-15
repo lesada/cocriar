@@ -1,28 +1,30 @@
 import { api } from "@/api";
 import { API_ROUTES } from "@/api/routes";
 
-type CreateArticleParams = {
+type UpdateEventParams = {
+	id: string;
 	title: string;
 	image_url: string | null;
 	category: string;
 	content: string;
 };
 
-export async function createArticle({
+export async function updateEvent({
+	id,
 	title,
 	image_url,
 	category,
 	content,
-}: CreateArticleParams) {
+}: UpdateEventParams) {
 	try {
-		await api.post(`${API_ROUTES.ARTICLES}/`, {
+		await api.patch(`${API_ROUTES.EVENTS}/${id}`, {
 			title,
 			image_url,
 			category,
 			content,
 		});
 	} catch (error) {
-		console.error("Error updating article:", error);
+		console.error("Error updating event:", error);
 		throw error;
 	}
 }
