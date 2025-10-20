@@ -3,24 +3,30 @@ import { API_ROUTES } from "@/api/routes";
 
 type UpdateEventParams = {
 	id: string;
-	title: string;
-	image_url: string | null;
-	category: string;
-	content: string;
+	title?: string;
+	content?: string;
+	event_date?: Date;
+	address?: string;
+	max_participants?: number;
+	image_url?: string | null;
 };
 
 export async function updateEvent({
 	id,
 	title,
 	image_url,
-	category,
 	content,
+	event_date,
+	address,
+	max_participants,
 }: UpdateEventParams) {
 	try {
 		await api.patch(`${API_ROUTES.EVENTS}/${id}`, {
 			title,
 			image_url,
-			category,
+			event_date,
+			address,
+			max_participants,
 			content,
 		});
 	} catch (error) {

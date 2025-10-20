@@ -9,7 +9,7 @@ import ShimmerSkeleton from "@/components/ShimmerSkeleton";
 import Table from "@/components/Table";
 import { queryClient } from "@/contexts/query-client";
 import { ROUTES_PATHS } from "@/routes";
-import { formatDate } from "@/utils/format-date";
+import { formatDateToString } from "@/utils/format-date";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
@@ -91,7 +91,7 @@ function Events() {
 						<Table.Row key={event.title}>
 							<Table.Cell>{event.title}</Table.Cell>
 							<Table.Cell>Evento</Table.Cell>
-							<Table.Cell>{formatDate(event.event_date)}</Table.Cell>
+							<Table.Cell>{formatDateToString(event.event_date)}</Table.Cell>
 							<Table.Cell>{event.max_participants}</Table.Cell>
 							<Table.Actions>
 								<button

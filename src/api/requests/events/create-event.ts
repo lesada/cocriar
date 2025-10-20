@@ -6,7 +6,7 @@ type CreateEventParams = {
 	content: string;
 	event_date: Date;
 	address?: string;
-	max_participants: number;
+	max_participants?: number;
 	image_url?: string | null;
 };
 

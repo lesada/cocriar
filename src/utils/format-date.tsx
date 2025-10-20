@@ -1,5 +1,9 @@
-import { format } from "date-fns";
+import { format, parse } from "date-fns";
 
-export function formatDate(date: Date): string {
+export function formatDateToString(date: Date): string {
 	return format(date, "dd/MM/yyyy");
+}
+
+export function formatStringToDate(dateString: string): Date {
+	return parse(dateString, "dd/MM/yyyy", new Date());
 }

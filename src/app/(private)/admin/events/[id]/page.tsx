@@ -1,59 +1,64 @@
 "use client";
 
-import { createArticle } from "@/api/requests/articles/create-article";
-import { getArticleById } from "@/api/requests/articles/get-article-by-id";
-import { updateArticle } from "@/api/requests/articles/update-article";
+import { createEvent } from "@/api/requests/events/create-event";
+import { getEventById } from "@/api/requests/events/get-event-by-id";
+import { updateEvent } from "@/api/requests/events/update-event";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import RichText from "@/components/RichText";
+import { formatDateToString, formatStringToDate } from "@/utils/format-date";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { type Resolver, useForm } from "react-hook-form";
 import ModalImage from "./modal-image";
-import { type ArticleFormData, articleSchema } from "./schema";
+import { type EventFormData, eventSchema } from "./schema";
 
-function Article() {
+function Event() {
 	const { id } = useParams<{ id: string }>();
 
-	const isNewArticle = id === "novo";
+	const isNewEvent = id === "novo";
 
 	const { control, reset, setValue, watch, handleSubmit } =
-		useForm<ArticleFormData>({
+		useForm<EventFormData>({
 			defaultValues: {
 				title: "",
 				content: "",
-				category: "",
+				event_date: "",
+				event_address: "",
+				max_participants: 0,
 			},
-			resolver: yupResolver(articleSchema),
+			resolver: yupResolver(eventSchema) as Resolver<EventFormData>,
 			mode: "onSubmit",
 		});
 
 	const wContent = watch("content");
 
 	const { data, isSuccess } = useQuery({
-		queryKey: ["articles", id],
+		queryKey: ["events", id],
 		queryFn: () =>
-			getArticleById({
+			getEventById({
 				id,
 			}),
-		enabled: !isNewArticle,
+		enabled: !isNewEvent,
 	});
 
 	const [imageBase64, setImageBase64] = useState<string | null>(null);
 	const [isModalImageOpen, setIsModalImageOpen] = useState(false);
 
 	useEffect(() => {
-		if (isSuccess && data.article) {
+		if (isSuccess && data.event) {
 			reset({
-				title: data.article.title,
-				content: data.article.content,
-				category: data.article.category,
+				title: data.event.title,
+				content: data.event.content,
+				event_date: formatDateToString(data.event.event_date),
+				event_address: data.event.address,
+				max_participants: data.event.max_participants,
 			});
 
-			setImageBase64(data.article.image_url || null);
+			setImageBase64(data.event.image_url || null);
 		}
 	}, [data, isSuccess, reset]);
 
@@ -76,16 +81,19 @@ function Article() {
 		input.click();
 	};
 
-	async function handleSave(data: ArticleFormData) {
-		if (isNewArticle)
-			await createArticle({
+	async function handleSave(data: EventFormData) {
+		if (isNewEvent)
+			await createEvent({
 				...data,
+				address: data.event_address,
+				event_date: formatStringToDate(data.event_date),
 				image_url: imageBase64,
 			});
 		else
-			await updateArticle({
+			await updateEvent({
 				...data,
 				id,
+				event_date: formatStringToDate(data.event_date),
 				image_url: imageBase64,
 			});
 	}
@@ -93,11 +101,11 @@ function Article() {
 	return (
 		<main className="flex flex-col flex-1 bg-blue-50 px-6 py-36 min-h-screen">
 			<h1 className="mb-8 font-medium text-3xl">
-				{isNewArticle ? "Novo artigo" : "Editar artigo"}
+				{isNewEvent ? "Novo evento" : "Editar evento"}
 			</h1>
 			<form className="flex flex-col gap-4" onSubmit={handleSubmit(handleSave)}>
 				<Input
-					label="Título do artigo"
+					label="Título do evento"
 					control={control}
 					name="title"
 					variant="secondary"
@@ -132,16 +140,36 @@ function Article() {
 					</button>
 				)}
 
-				<Input
-					label="Categoria"
-					control={control}
-					name="category"
-					variant="secondary"
-					placeholder=""
-				/>
-
 				<h2 className="mb-4 font-medium text-xl">Inserir conteúdo</h2>
 				<RichText onChange={(v) => setValue("content", v)} value={wContent} />
+				<section className="bg-white p-4 rounded-md">
+					<h2 className="mb-8 font-inter font-medium text-xl">
+						Dados do evento
+					</h2>
+					<div className="gap-4 grid grid-cols-1 md:grid-cols-2">
+						<Input
+							label="Data do evento"
+							control={control}
+							name="event_date"
+							variant="secondary"
+							placeholder="DD/MM/AAAA"
+						/>
+						<Input
+							label="Local do evento"
+							control={control}
+							name="event_address"
+							variant="secondary"
+							placeholder="Remoto ou endereço físico"
+						/>
+						<Input
+							label="Número máximo de participantes"
+							control={control}
+							name="max_participants"
+							variant="secondary"
+							placeholder="100"
+						/>
+					</div>
+				</section>
 				<Button className="mt-4" type="submit">
 					Salvar
 				</Button>
@@ -157,4 +185,4 @@ function Article() {
 	);
 }
 
-export default Article;
+export default Event;
