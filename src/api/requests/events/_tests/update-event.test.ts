@@ -13,7 +13,6 @@ describe("updateEvent", () => {
 		id: "123",
 		title: "Updated Title",
 		image_url: "http://example.com/image.png",
-		category: "Tech",
 		content: "Updated content",
 	};
 
@@ -25,10 +24,12 @@ describe("updateEvent", () => {
 		(api.patch as Mock).mockResolvedValueOnce({});
 		await updateEvent(params);
 		expect(api.patch).toHaveBeenCalledWith(`/events/${params.id}`, {
-			category: params.category,
 			content: params.content,
 			image_url: params.image_url,
 			title: params.title,
+			max_participants: undefined,
+			address: undefined,
+			event_date: undefined,
 		});
 	});
 

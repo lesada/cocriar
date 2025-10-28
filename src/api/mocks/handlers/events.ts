@@ -24,4 +24,15 @@ export const eventsMockHandler = [
 		}
 		return HttpResponse.json({ message: "Event not found" }, { status: 404 });
 	}),
+
+	http.patch("/events/:id", (req) => {
+		const { id } = req.params;
+		const updatedData = req.params;
+		const event = eventsMock.events.find((a) => a.id === id);
+		if (event) {
+			Object.assign(event, updatedData);
+			return HttpResponse.json(event);
+		}
+		return HttpResponse.json({ message: "Event not found" }, { status: 404 });
+	}),
 ];
