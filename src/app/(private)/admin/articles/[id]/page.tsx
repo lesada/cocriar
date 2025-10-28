@@ -5,7 +5,7 @@ import { getArticleById } from "@/api/requests/articles/get-article-by-id";
 import { updateArticle } from "@/api/requests/articles/update-article";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
-import ModalAddImage from "@/components/ModalAddImage";
+import ModalDeleteImage from "@/components/ModalDeleteImage";
 import RichText from "@/components/RichText";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Icon } from "@iconify/react/dist/iconify.js";
@@ -147,7 +147,7 @@ function Article() {
 				</Button>
 			</form>
 			{isModalImageOpen && (
-				<ModalAddImage
+				<ModalDeleteImage
 					base64={imageBase64}
 					deleteImage={() => setImageBase64(null)}
 					onClose={() => setIsModalImageOpen(false)}

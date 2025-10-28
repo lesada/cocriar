@@ -1,14 +1,14 @@
-type ModalAddImageProps = {
+type ModalDeleteImageProps = {
 	base64: string | null;
 	deleteImage: () => void;
 	onClose: () => void;
 };
 
-function ModalAddImage({
+function ModalDeleteImage({
 	base64,
 	deleteImage,
 	onClose,
-}: Readonly<ModalAddImageProps>) {
+}: Readonly<ModalDeleteImageProps>) {
 	if (!base64) return null;
 
 	return (
@@ -40,4 +40,4 @@ function ModalAddImage({
 	);
 }
 
-export default ModalAddImage;
+export default ModalDeleteImage;

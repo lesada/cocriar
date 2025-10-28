@@ -1,11 +1,15 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import ModalAddImage from ".";
+import ModalDeleteImage from ".";
 
-describe("components > ModalAddImage", () => {
+describe("components > ModalDeleteImage", () => {
 	it("returns null when base64 is null", () => {
 		const { container } = render(
-			<ModalAddImage base64={null} deleteImage={() => {}} onClose={() => {}} />,
+			<ModalDeleteImage
+				base64={null}
+				deleteImage={() => {}}
+				onClose={() => {}}
+			/>,
 		);
 
 		expect(container.firstChild).toBeNull();
@@ -17,7 +21,7 @@ describe("components > ModalAddImage", () => {
 		const onClose = vi.fn();
 
 		render(
-			<ModalAddImage
+			<ModalDeleteImage
 				base64={base64}
 				deleteImage={deleteImage}
 				onClose={onClose}
