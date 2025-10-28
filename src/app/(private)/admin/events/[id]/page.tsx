@@ -5,6 +5,7 @@ import { getEventById } from "@/api/requests/events/get-event-by-id";
 import { updateEvent } from "@/api/requests/events/update-event";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import ModalAddImage from "@/components/ModalAddImage";
 import RichText from "@/components/RichText";
 import { formatDateToString, formatStringToDate } from "@/utils/format-date";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,7 +14,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { type Resolver, useForm } from "react-hook-form";
-import ModalImage from "./modal-image";
 import { type EventFormData, eventSchema } from "./schema";
 
 function Event() {
@@ -175,7 +175,7 @@ function Event() {
 				</Button>
 			</form>
 			{isModalImageOpen && (
-				<ModalImage
+				<ModalAddImage
 					base64={imageBase64}
 					deleteImage={() => setImageBase64(null)}
 					onClose={() => setIsModalImageOpen(false)}
