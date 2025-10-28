@@ -15,7 +15,7 @@ export async function createArticle({
 	content,
 }: CreateArticleParams) {
 	try {
-		await api.put(`${API_ROUTES.ARTICLES}/`, {
+		await api.post(`${API_ROUTES.ARTICLES}/`, {
 			title,
 			image_url,
 			category,

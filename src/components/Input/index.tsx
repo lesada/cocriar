@@ -73,7 +73,7 @@ function Input<T extends FieldValues>({
 								mask={mask}
 								className={twMerge(
 									clsx(
-										"bg-white/95 p-3 md:p-4 rounded-lg outline-1 outline-cyan-200 w-full text-neutral-400 placeholder:text-neutral-200 text-sm placeholder:text-sm",
+										"bg-white/95 p-3 md:p-4 border-1 border-neutral-200 rounded-lg outline-1 outline-cyan-200 w-full text-neutral-400 placeholder:text-neutral-200 text-sm placeholder:text-sm",
 										error && "outline-red-600",
 										variant === "secondary" &&
 											"outline-transparent text-neutral-800",
